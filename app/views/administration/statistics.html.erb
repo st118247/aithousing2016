@@ -1,0 +1,36 @@
+<h1>Statistics</h1>
+<table>
+  <thead>
+  <tr>
+    <th colspan="4">Column</th>
+    <th>Count</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>All User</td>
+      <td><%= @user.count %></td>
+    </tr>
+    <tr>
+      <td>All Role</td>
+      <td><%= @role.count %></td>
+    </tr>
+    <tr>
+      <td>Total of Admins</td>
+      <td><%= @user.where(officer_role_id:1).count %></td>
+    </tr>
+    <tr>
+      <td>Total of Manager</td>
+      <td><%= @user.where(officer_role_id:2).count %></td>
+    </tr>
+    <tr>
+      <td>Total of Staffs</td>
+      <td><%= @user.where(officer_role_id:3).count %></td>
+    </tr>
+    <tr>
+      <td>Total of No role</td>
+      <td><%= @user.where(officer_role_id:4).count %></td>
+    </tr>
+  </tbody>
+</table>
