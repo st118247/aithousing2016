@@ -1,5 +1,35 @@
-<h1>Accommodation office for staffs</h1>
-<ul>
-  <li><%= link_to "List of users", administration_userlist_path %></li>
-  <li><%= link_to "Statistics", administration_statistics_path %></li>
-</ul>
+<h1>Accommodation office</h1>
+
+<% if user_signed_in? %>
+    <% if current_user.officer_role.role == 'Admin' %>
+      <div id="admin">
+        <h3>Admin</h3>
+        <ul>
+          <li><%= link_to "List of users", administration_userlist_path %></li>
+          <li><%= link_to "Statistics", administration_statistics_path %></li>
+        </ul>
+      </div>
+    <% elsif current_user.officer_role.role == 'Supervisor' %>
+      <div id = "supervisor">
+        <h4>Staffs</h4>
+        <ul>
+          <li><%= link_to "List of users", administration_userlist_path %></li>
+          <li><%= link_to "Statistics", administration_statistics_path %></li>
+        </ul>
+      </div>
+    <% elsif current_user.officer_role.role == 'Staff' %>
+      <div id = "staff">
+        <h4>Staffs</h4>
+        <ul>
+          <li><%= link_to "List of users", administration_userlist_path %></li>
+          <li><%= link_to "Statistics", administration_statistics_path %></li>
+        </ul>
+      </div>
+    <% else %>
+      <h4>Newbie</h4>
+      <ul>
+        <li><%= link_to "List of users", administration_userlist_path %></li>
+        <li><%= link_to "Statistics", administration_statistics_path %></li>
+      </ul>
+    <% end %>
+<% end %>
