@@ -8,46 +8,71 @@
       <th>Version</th>
       <th>Catgory no</th>
       <th>Status</th>
-      <th>Category name</th>
-      <th>Dorm</th>
-      <th>Size</th>
-      <th>Air con</th>
-      <th>Balcony</th>
-      <th>Bathroom</th>
-      <th>Kitchen</th>
-      <th>Furniture</th>
-      <th>Cleaning</th>
-      <th>Description</th>
-      <th>Rent</th>
-      <th>Attachment</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
+      <!--<th>Category name</th>-->
+      <!--<th>Dorm</th>-->
+      <!--<th>Size</th>-->
+      <!--<th>Air con</th>-->
+      <!--<th>Balcony</th>-->
+      <!--<th>Bathroom</th>-->
+      <!--<th>Kitchen</th>-->
+      <!--<th>Furniture</th>-->
+      <!--<th>Cleaning</th>-->
+      <!--<th>Description</th>-->
+      <!--<th>Rent</th>-->
+      <!--<th>Attachment</th>-->
+      <!--<th colspan="3"></th>-->
+    <!--</tr>-->
+  <!--</thead>-->
+
   <tbody>
-    <% @housing_details.each do |housing_detail| %>
+  <% @housing_details.each do |housing_detail| %>
       <tr>
         <td><%= housing_detail.version_id %></td>
-        <td><%= housing_detail.catgory_no %></td>
+        <td><%= housing_detail.category_id %></td>
         <td><%= housing_detail.status %></td>
-        <td><%= housing_detail.category_name %></td>
-        <td><%= housing_detail.dorm %></td>
-        <td><%= housing_detail.size %></td>
-        <td><%= housing_detail.air_con %></td>
-        <td><%= housing_detail.balcony %></td>
-        <td><%= housing_detail.bathroom %></td>
-        <td><%= housing_detail.kitchen %></td>
-        <td><%= housing_detail.furniture %></td>
-        <td><%= housing_detail.cleaning %></td>
-        <td><%= housing_detail.description %></td>
-        <td><%= housing_detail.rent %></td>
-        <td><%= housing_detail.attachment %></td>
         <td><%= link_to 'Show', housing_detail %></td>
-        <td><%= link_to 'Edit', edit_housing_detail_path(housing_detail) %></td>
+        <% if housing_detail.status == 'Approved' %>
+            <td><%= link_to 'Edit', edit_housing_detail_path(housing_detail) %></td>
+        <% end %>
         <td><%= link_to 'Destroy', housing_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
+
+
+  <!--<tbody>-->
+    <!--<%# @housing_details.each do |housing_detail| %>-->
+      <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+        <!--<td><%#= housing_detail.version_id %></td>-->
+        <!--<td><%#= housing_detail.category_id %></td>-->
+        <!--<td><%#= housing_detail.status %></td>-->
+        <!--<td><%#= housing_detail.category_name %></td>-->
+        <!--<td><%#= housing_detail.dorm %></td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td><%#= housing_detail.size %></td>-->
+        <!--<td><%#= housing_detail.air_con %></td>-->
+        <!--<td><%#= housing_detail.balcony %></td>-->
+        <!--<td><%#= housing_detail.bathroom %></td>-->
+        <!--<td><%#= housing_detail.kitchen %></td>-->
+        <!--<td><%#= housing_detail.furniture %></td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td><%#= housing_detail.cleaning %></td>-->
+        <!--<td><%#= housing_detail.description %></td>-->
+        <!--<td><%#= housing_detail.rent %></td>-->
+        <!--<td><%#= housing_detail.attachment %></td>-->
+        <!--<td><%#= link_to 'Show', housing_detail %></td>-->
+        <!--<%# if housing_detail.status == 'Approved' %>-->
+            <!--<td><%#= link_to 'Edit', edit_housing_detail_path(housing_detail) %></td>-->
+        <!--<%# end %>-->
+        <!--<td><%#= link_to 'Destroy', housing_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      <!--</tr>-->
+    <!--<%# end %>-->
+  <!--</tbody>-->
 </table>
 
 <br>

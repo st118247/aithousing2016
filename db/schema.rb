@@ -10,18 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20161204041736) do
-=======
-ActiveRecord::Schema.define(version: 20161204154448) do
->>>>>>> d8192f3c6599be352830e3f9d6a79902d3bd9fe4
+ActiveRecord::Schema.define(version: 20161204165712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "housing_details", force: :cascade do |t|
     t.integer  "version_id"
-    t.string   "catgory_no"
+    t.string   "category_id"
     t.string   "status"
     t.string   "category_name"
     t.string   "dorm"

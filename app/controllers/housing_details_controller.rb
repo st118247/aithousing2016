@@ -27,6 +27,15 @@ class HousingDetailsController < ApplicationController
     @housing_detail = HousingDetail.new(housing_detail_params)
 
     respond_to do |format|
+
+      h = HousingDetail.where(category_id: @housing_detail.category_id)
+      if h.present?  then
+        @housing_detail.version_id = h.count + 1
+      else
+        @housing_detail.version_id = '1'
+      end
+      @housing_detail.status = 'Waiting for Approval'
+
       if @housing_detail.save
         format.html { redirect_to @housing_detail, notice: 'Housing detail was successfully created.' }
         format.json { render :show, status: :created, location: @housing_detail }
@@ -40,6 +49,12 @@ class HousingDetailsController < ApplicationController
   # PATCH/PUT /housing_details/1
   # PATCH/PUT /housing_details/1.json
   def update
+    @h_old = @housing_detail.dup
+    @h_old.save
+
+    @housing_detail.status = 'Waiting for Approval'
+    @housing_detail.version_id = @h_old.version_id + 1
+
     respond_to do |format|
       if @housing_detail.update(housing_detail_params)
         format.html { redirect_to @housing_detail, notice: 'Housing detail was successfully updated.' }
@@ -69,6 +84,6 @@ class HousingDetailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def housing_detail_params
-      params.require(:housing_detail).permit(:version_id, :catgory_no, :status, :category_name, :dorm, :size, :air_con, :balcony, :bathroom, :kitchen, :furniture, :cleaning, :description, :rent, :attachment)
+      params.require(:housing_detail).permit(:version_id, :category_id, :status, :category_name, :dorm, :size, :air_con, :balcony, :bathroom, :kitchen, :furniture, :cleaning, :description, :rent, :attachment)
     end
 end
