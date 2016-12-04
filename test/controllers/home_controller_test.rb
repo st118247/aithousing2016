@@ -1,9 +1,18 @@
 require 'test_helper'
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
-  include Devise::Test::IntegrationHelpers
   test "should get index" do
     get home_index_url
+    assert_response :success
+  end
+
+  test "should get managehousingdetail" do
+    get home_managehousingdetail_url
+    assert_response :success
+  end
+
+  test "should get public" do
+    get home_public_url
     assert_response :success
   end
 

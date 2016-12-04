@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'home/public'
+
 #<<<<<<< HEAD
   get 'home/managehousingdetail'
 
@@ -20,6 +22,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get 'home/index'
+
+  post 'home/btn_approve'
+  post 'home/btn_reject'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
