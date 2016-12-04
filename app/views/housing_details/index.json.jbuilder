@@ -1,0 +1,1 @@
+json.array! @housing_details, partial: 'housing_details/housing_detail', as: :housing_detail

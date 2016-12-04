@@ -75,4 +75,9 @@ gem 'memory_profiler'
 gem 'flamegraph'
 gem 'stackprof'     # For Ruby MRI 2.1+
 gem 'fast_stack'    # For Ruby MRI 2.0
-gem 'rack-mini-profiler', require: false
+
+# rack mini profiler already mentioned above
+#gem 'rack-mini-profiler', require: false
+
+
+gem "carrierwave", :github => "carrierwaveuploader/carrierwave"

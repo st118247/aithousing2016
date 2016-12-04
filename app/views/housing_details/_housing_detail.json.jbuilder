@@ -1,0 +1,2 @@
+json.extract! housing_detail, :id, :version_id, :catgory_no, :status, :category_name, :dorm, :size, :air_con, :balcony, :bathroom, :kitchen, :furniture, :cleaning, :description, :rent, :attachment, :created_at, :updated_at
+json.url housing_detail_url(housing_detail, format: :json)

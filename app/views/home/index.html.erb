@@ -9,6 +9,8 @@
           <li><%= link_to "Statistics", administration_statistics_path %></li>
           <li><%= link_to "Room Management", room_managements_path %></li>
           <li><%= link_to "Room History", room_histories_path %></li>
+          <li><%= link_to "Housgin Details Management", home_managehousingdetail_path %></li>
+          <li><%= link_to "Housing Details Entry", housing_details_path %></li>
         </ul>
       </div>
     <% elsif current_user.officer_role.role == 'Supervisor' %>
@@ -37,3 +39,6 @@
       </ul>
     <% end %>
 <% end %>
+
+<h2>Public page</h2>
+<p>To view the Housing details of AIT residences please click here <%= link_to 'here', home_public_url, target: "_blank" %> </p>
