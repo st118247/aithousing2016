@@ -47,10 +47,27 @@ class RoomManagementsController < ApplicationController
   # PATCH/PUT /room_managements/1
   # PATCH/PUT /room_managements/1.json
   def update
+    @check = RoomManagement.find(params[:id])
     @room_management.user = current_user
     if params[:room_management][:status] == "Available" then
+      puts params[:room_management][:arrival_date]
       @room_management.student_id = nil
       @room_management.arrival_date = nil
+      if !@check.student_id.nil?
+        @room_history = RoomHistory.new
+        @room_history.category_no = params[:room_management][:category_no]
+        @room_history.dorm = params[:room_management][:dorm]
+        @room_history.student_id = @check.student_id
+        @room_history.arrival_date = @check.arrival_date
+        @room_history.leave_date = DateTime.civil(params[:room_management]["arrival_date(1i)"].to_f,params[:room_management]["arrival_date(2i)"].to_f,params[:room_management]["arrival_date(3i)"].to_f,params[:room_management]["arrival_date(4i)"].to_f,params[:room_management]["arrival_date(5i)"].to_f, 0, 0)
+        @room_history.allocated_user_id = @check.user_id
+        @room_history.deallocated_user_id = current_user.id
+        @room_history.room_management = @check
+        @room_history.save
+
+        @room_management.status = "Available"
+        params[:room_management].delete_if{ |key, value| key.match(/^arrival_date/) }
+      end
     end
     respond_to do |format|
       if @room_management.update(room_management_params)
@@ -83,9 +100,11 @@ class RoomManagementsController < ApplicationController
     def room_management_params
       @check = RoomManagement.find(params[:id])
       if params[:room_management][:status] == "Available" then
-        params.require(:room_management).permit(:room_no, :category_no, :dorm, :status, :user_id)
-      # elsif params[:room_management][:status] == "Available" && @check.student_id? then
-      #   params.require(:room_management).permit(:room_no, :category_no, :dorm, :status, :student_id, :arrival_date, :user_id)
+        if !@check.student_id.nil?
+          params.require(:room_management).permit(:room_no, :category_no, :dorm, :arrival_date, :user_id)
+        else
+          params.require(:room_management).permit(:room_no, :category_no, :dorm, :status, :user_id)
+        end
       else
         params.require(:room_management).permit(:room_no, :category_no, :dorm, :status, :student_id, :arrival_date, :user_id)
       end

@@ -25,9 +25,13 @@
         <td><%= room_history.student_id %></td>
         <td><%= room_history.arrival_date %></td>
         <td><%= room_history.leave_date %></td>
-        <td><%= room_history.allocated_user_id %></td>
-        <td><%= room_history.deallocated_user_id %></td>
-        <td><%= room_history.RoomManagement %></td>
+        <td><%= User.find(room_history.allocated_user_id).email %></td>
+        <% if room_history.deallocated_user_id.nil? %>
+            <td></td>
+        <% else %>
+            <td><%= User.find(room_history.deallocated_user_id).email %></td>
+        <% end %>
+        <td><%= room_history.room_management.room_no %></td>
         <td><%= link_to 'Show', room_history %></td>
         <td><%= link_to 'Edit', edit_room_history_path(room_history) %></td>
         <td><%= link_to 'Destroy', room_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>

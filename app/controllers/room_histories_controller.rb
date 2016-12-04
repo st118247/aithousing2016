@@ -69,6 +69,6 @@ class RoomHistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_history_params
-      params.require(:room_history).permit(:category_no, :dorm, :student_id, :arrival_date, :leave_date, :allocated_user_id, :deallocated_user_id, :RoomManagement_id)
+      params.require(:room_history).permit(:category_no, :dorm, :student_id, :arrival_date, :leave_date, :allocated_user_id, :deallocated_user_id, :room_management_id)
     end
 end
