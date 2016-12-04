@@ -1,10 +1,11 @@
 class RoomManagementsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_room_management, only: [:show, :edit, :update, :destroy]
 
   # GET /room_managements
   # GET /room_managements.json
   def index
-    @room_managements = RoomManagement.all
+    @room_managements = RoomManagement.all.order("room_no")
   end
 
   # GET /room_managements/1
@@ -50,8 +51,6 @@ class RoomManagementsController < ApplicationController
     if params[:room_management][:status] == "Available" then
       @room_management.student_id = nil
       @room_management.arrival_date = nil
-    elsif params[:room_management][:status] == "Available" then
-
     end
     respond_to do |format|
       if @room_management.update(room_management_params)
