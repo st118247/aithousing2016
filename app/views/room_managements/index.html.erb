@@ -26,9 +26,12 @@
         <td><%= room_management.student_id %></td>
         <td><%= room_management.arrival_date %></td>
         <td><%= room_management.user.email %></td>
-        <td><%= link_to 'Show', room_management %></td>
         <td><%= link_to 'Edit', edit_room_management_path(room_management) %></td>
-        <td><%= link_to 'Destroy', room_management, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td></td>
+        <td></td>
+        <!--<td><%# link_to 'Show', room_management %></td>-->
+        <!--<td><%# link_to 'Edit', edit_room_management_path(room_management) %></td>-->
+        <!--<td><%# link_to 'Destroy', room_management, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>

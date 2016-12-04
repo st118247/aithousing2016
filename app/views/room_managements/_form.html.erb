@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= f.label :status %>
-    <%= f.select(:status, options_for_select([['Available', 'Available'], ['Occupied', 'Occupied']], selected: :option )) %>
+    <%= f.select(:status, options_for_select([['De-allocate', 'Available'], ['Allocate', 'Occupied']], selected: :option )) %>
   </div>
 
   <div class="field">
