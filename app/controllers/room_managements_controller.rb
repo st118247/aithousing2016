@@ -92,8 +92,8 @@ class RoomManagementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_management_params
-      @check = RoomManagement.find(params[:id])
       if params[:room_management][:status] == "Available" then
+        @check = RoomManagement.find(params[:id])
         if !@check.student_id.nil?
           params.require(:room_management).permit(:room_no, :category_no, :dorm, :arrival_date, :user_id)
         else
