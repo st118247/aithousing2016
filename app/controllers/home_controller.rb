@@ -7,18 +7,25 @@ class HomeController < ApplicationController
   end
 
   def public
-    @housing_details = HousingDetail.where(status: 'Approved')
+    @hd = HousingDetail.where(status: 'Approved').order(version_id: :desc)
+    #@cat_id_unique = @hd.distinct.pluck(:category_id)
+
+    #@cat_id_unique.each do |c|
+    #  if @hd.where(category_id: c.to_i, status: 'Approved').present?
+    #    @housing_details_1 = @hd.where(category_id: c.last.to_i).first
+    #  end
+    #end
   end
 
   def btn_approve
-    @housingdetail = Housingdetail.find(params[:id])
+    @housingdetail = HousingDetail.find(params[:id])
     @housingdetail.status = "Approved"
     @housingdetail.save
     redirect_to home_managehousingdetail_path
   end
 
   def btn_reject
-    @housingdetail = Housingdetail.find(params[:id])
+    @housingdetail = HousingDetail.find(params[:id])
     @housingdetail.status = "Rejected"
     @housingdetail.save
     redirect_to home_managehousingdetail_path

@@ -53,7 +53,7 @@ class HousingDetailsController < ApplicationController
     @h_old.save
 
     @housing_detail.status = 'Waiting for Approval'
-    @housing_detail.version_id = @h_old.version_id + 1
+    @housing_detail.version_id = HousingDetail.where(category_id: @h_old.category_id).maximum(:version_id) + 1
 
     respond_to do |format|
       if @housing_detail.update(housing_detail_params)
