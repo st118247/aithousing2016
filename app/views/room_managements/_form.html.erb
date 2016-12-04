@@ -27,20 +27,21 @@
   </div>
 
   <div class="field">
-    <%= f.label :status %>
+    <%# f.label :status %>
     <%= f.select(:status, options_for_select([['De-allocate', 'Available'], ['Allocate', 'Occupied']], selected: :option )) %>
   </div>
+
   <div id = 'allocate'>
     <div class="field">
       <%= f.label :student_id %>
       <%= f.text_field :student_id %>
     </div>
-
     <div class="field">
       <%= f.label :arrival_date %>
       <%= f.datetime_select :arrival_date %>
     </div>
   </div>
+
   <!--<div class="field">-->
     <!--<%# f.label :user_id %>-->
     <!--<%# f.text_field :user_id %>-->
@@ -56,9 +57,9 @@
     $('#allocate').hide();
     $('#room_management_status').change(function() {
         if ($('#room_management_status').val() == "Available"){
-          $('#allocate').show();
-        } else{
           $('#allocate').hide();
+        } else{
+          $('#allocate').show();
         }
     }).trigger( "change" );
   });

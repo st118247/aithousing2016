@@ -50,6 +50,8 @@ class RoomManagementsController < ApplicationController
     if params[:room_management][:status] == "Available" then
       @room_management.student_id = nil
       @room_management.arrival_date = nil
+    elsif params[:room_management][:status] == "Available" then
+
     end
     respond_to do |format|
       if @room_management.update(room_management_params)
@@ -80,8 +82,11 @@ class RoomManagementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_management_params
+      @check = RoomManagement.find(params[:id])
       if params[:room_management][:status] == "Available" then
         params.require(:room_management).permit(:room_no, :category_no, :dorm, :status, :user_id)
+      # elsif params[:room_management][:status] == "Available" && @check.student_id? then
+      #   params.require(:room_management).permit(:room_no, :category_no, :dorm, :status, :student_id, :arrival_date, :user_id)
       else
         params.require(:room_management).permit(:room_no, :category_no, :dorm, :status, :student_id, :arrival_date, :user_id)
       end
