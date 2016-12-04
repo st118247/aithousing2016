@@ -1,66 +1,69 @@
 <%= form_for(room_management) do |f| %>
-  <% if room_management.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(room_management.errors.count, "error") %> prohibited this room_management from being saved:</h2>
+    <% if room_management.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(room_management.errors.count, "error") %> prohibited this room_management from being
+            saved:</h2>
 
-      <ul>
-      <% room_management.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% room_management.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :room_no %>
-    <%= f.text_field :room_no %>
-  </div>
-
-  <div class="field">
-    <%= f.label :category_no %>
-    <%= f.text_field :category_no %>
-  </div>
-
-  <div class="field">
-    <%= f.label :dorm %>
-    <%= f.text_field :dorm %>
-  </div>
-
-  <div class="field">
-    <%# f.label :status %>
-    <%= f.select(:status, options_for_select([['De-allocate', 'Available'], ['Allocate', 'Occupied']], selected: :option )) %>
-  </div>
-
-  <div id = 'allocate'>
     <div class="field">
-      <%= f.label :student_id %>
-      <%= f.text_field :student_id %>
+      <%= f.label :room_no %>
+      <%= f.text_field :room_no %>
     </div>
+
     <div class="field">
-      <%= f.label :arrival_date %>
+      <%= f.label :category_no %>
+      <%= f.text_field :category_no %>
+    </div>
+
+    <div class="field">
+      <%= f.label :dorm %>
+      <%= f.text_field :dorm %>
+    </div>
+
+    <div class="field">
+      <%# f.label :status %>
+      <%= f.select(:status, options_for_select([['Allocate', 'Occupied'], ['De-allocate', 'Available']], selected: :option)) %>
+    </div>
+
+    <div id='allocate'>
+      <div class="field">
+        <%= f.label :student_id %>
+        <%= f.text_field :student_id %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= f.label :arrival_date, id: "dateChange" %>
       <%= f.datetime_select :arrival_date %>
     </div>
-  </div>
-
-  <!--<div class="field">-->
+    <!--<div class="field">-->
     <!--<%# f.label :user_id %>-->
     <!--<%# f.text_field :user_id %>-->
-  <!--</div>-->
+    <!--</div>-->
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
 
 <script>
-  $(document).ready(function(){
+  $(document).ready(function () {
     $('#allocate').hide();
-    $('#room_management_status').change(function() {
-        if ($('#room_management_status').val() == "Available"){
-          $('#allocate').hide();
-        } else{
-          $('#allocate').show();
-        }
-    }).trigger( "change" );
+    $('#room_management_status').change(function () {
+      if ($('#room_management_status').val() == "Available") {
+        $('#allocate').hide();
+        $('#dateChange').text("Change Arrival date to Leave date");
+      } else {
+        $('#allocate').show();
+        $('#dateChange').text("Arrival date");
+      }
+    }).trigger("change");
   });
 </script>

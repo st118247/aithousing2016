@@ -7,7 +7,7 @@ FactoryGirl.define do
     email 'admin@ait.asia'
     password 'password'
     password_confirmation 'password'
-    officer_role_id '1'
+    association :officer_role, factory: :officer_role_admin
   end
 
   factory :officer_no_role, class: OfficerRole do
@@ -18,6 +18,6 @@ FactoryGirl.define do
     email 'staff@ait.asia'
     password 'password'
     password_confirmation 'password'
-    officer_role_id '2'
+    association :officer_role, factory: :officer_no_role
   end
 end

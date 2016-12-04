@@ -16,21 +16,29 @@
       <td>All Roles</td>
       <td><%= @role.count %></td>
     </tr>
+    <% if @role.where(id:1)[0].present? %>
     <tr>
       <td>Total of <%= @role.where(id:1)[0].role %>s</td>
       <td><%= @user.where(officer_role_id:1).count %></td>
     </tr>
+    <% end %>
+    <% if @role.where(id:2)[0].present? %>
     <tr>
       <td>Total of <%= @role.where(id:2)[0].role %>s</td>
       <td><%= @user.where(officer_role_id:2).count %></td>
     </tr>
-    <tr>
-      <td>Total of <%= @role.where(id:3)[0].role %>s</td>
-      <td><%= @user.where(officer_role_id:3).count %></td>
-    </tr>
-    <tr>
-      <td>Total of <%= @role.where(id:4)[0].role %></td>
-      <td><%= @user.where(officer_role_id:4).count %></td>
-    </tr>
+    <% end %>
+    <% if @role.where(id:3)[0].present? %>
+      <tr>
+        <td>Total of <%= @role.where(id:3)[0].role %>s</td>
+        <td><%= @user.where(officer_role_id:3).count %></td>
+      </tr>
+    <% end %>
+    <% if @role.where(id:4)[0].present? %>
+      <tr>
+        <td>Total of <%= @role.where(id:4)[0].role %></td>
+        <td><%= @user.where(officer_role_id:4).count %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
