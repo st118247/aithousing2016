@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :room_managements
   get 'administration/userlist'
   get 'administration/banuser'
   get 'administration/activeuser'

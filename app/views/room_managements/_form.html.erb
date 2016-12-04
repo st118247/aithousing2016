@@ -1,0 +1,52 @@
+<%= form_for(room_management) do |f| %>
+  <% if room_management.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(room_management.errors.count, "error") %> prohibited this room_management from being saved:</h2>
+
+      <ul>
+      <% room_management.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :room_no %>
+    <%= f.text_field :room_no %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_no %>
+    <%= f.text_field :category_no %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dorm %>
+    <%= f.text_field :dorm %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.select(:status, options_for_select([['Available', 'Available'], ['Occupied', 'Occupied']], selected: :option )) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :student_id %>
+    <%= f.text_field :student_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :arrival_date %>
+    <%= f.datetime_select :arrival_date %>
+  </div>
+
+  <!--<div class="field">-->
+    <!--<%# f.label :user_id %>-->
+    <!--<%# f.text_field :user_id %>-->
+  <!--</div>-->
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

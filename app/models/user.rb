@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :officer_role
+  has_many :room_managements
   validates_uniqueness_of :email
 
   def admin?

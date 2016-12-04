@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Room no:</strong>
+  <%= @room_management.room_no %>
+</p>
+
+<p>
+  <strong>Category no:</strong>
+  <%= @room_management.category_no %>
+</p>
+
+<p>
+  <strong>Dorm:</strong>
+  <%= @room_management.dorm %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @room_management.status %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @room_management.student_id %>
+</p>
+
+<p>
+  <strong>Arrival date:</strong>
+  <%= @room_management.arrival_date %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @room_management.user.email %>
+</p>
+
+<%= link_to 'Edit', edit_room_management_path(@room_management) %> |
+<%= link_to 'Back', room_managements_path %>

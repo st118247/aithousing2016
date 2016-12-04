@@ -1,0 +1,1 @@
+json.array! @room_managements, partial: 'room_managements/room_management', as: :room_management
