@@ -1,0 +1,92 @@
+<%= form_for(housing_detail) do |f| %>
+  <% if housing_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(housing_detail.errors.count, "error") %> prohibited this housing_detail from being saved:</h2>
+
+      <ul>
+      <% housing_detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :version_id %>
+    <%= f.number_field :version_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :catgory_no %>
+    <%= f.text_field :catgory_no %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_name %>
+    <%= f.text_field :category_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dorm %>
+    <%= f.text_field :dorm %>
+  </div>
+
+  <div class="field">
+    <%= f.label :size %>
+    <%= f.text_field :size %>
+  </div>
+
+  <div class="field">
+    <%= f.label :air_con %>
+    <%= f.text_field :air_con %>
+  </div>
+
+  <div class="field">
+    <%= f.label :balcony %>
+    <%= f.text_field :balcony %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bathroom %>
+    <%= f.text_field :bathroom %>
+  </div>
+
+  <div class="field">
+    <%= f.label :kitchen %>
+    <%= f.text_field :kitchen %>
+  </div>
+
+  <div class="field">
+    <%= f.label :furniture %>
+    <%= f.text_field :furniture %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cleaning %>
+    <%= f.text_field :cleaning %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rent %>
+    <%= f.text_field :rent %>
+  </div>
+
+  <div class="field">
+    <%= f.label :attachment %>
+    <%= f.text_field :attachment %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

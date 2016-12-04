@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  version_id: 1
+  catgory_no: MyString
+  status: MyString
+  category_name: MyString
+  dorm: MyString
+  size: 9.99
+  air_con: MyString
+  balcony: MyString
+  bathroom: MyString
+  kitchen: MyString
+  furniture: MyString
+  cleaning: MyString
+  description: MyString
+  rent: MyString
+  attachment: MyString
+
+two:
+  version_id: 1
+  catgory_no: MyString
+  status: MyString
+  category_name: MyString
+  dorm: MyString
+  size: 9.99
+  air_con: MyString
+  balcony: MyString
+  bathroom: MyString
+  kitchen: MyString
+  furniture: MyString
+  cleaning: MyString
+  description: MyString
+  rent: MyString
+  attachment: MyString
