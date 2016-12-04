@@ -24,14 +24,14 @@ class RoomManagementsController < ApplicationController
   # POST /room_managements
   # POST /room_managements.json
   def create
-    if params[:room_management][:status] == "Available" then
-      params[:room_management].delete :student_id
-    end
+    # if params[:room_management][:status] == "Available" then
+    #   params[:room_management].delete :student_id
+    # end
     @room_management = RoomManagement.new(room_management_params)
     @room_management.user = current_user
-    if @room_management.status == "Available" then
-      @room_management.arrival_date = nil
-    end
+    # if @room_management.status == "Available" then
+    #   @room_management.arrival_date = nil
+    # end
     respond_to do |format|
       if @room_management.save
         format.html { redirect_to @room_management, notice: 'Room management was successfully created.' }
@@ -47,11 +47,11 @@ class RoomManagementsController < ApplicationController
   # PATCH/PUT /room_managements/1.json
   def update
     @room_management.user = current_user
-    if params[:room_management][:status] == "Available" then
-      params[:room_management].delete :student_id
-      @room_management.arrival_date = nil
-      puts "!!!!!!!!------------------------!!!!!!!!!!!!!!!"
-    end
+    # if params[:room_management][:status] == "Available" then
+    #   params[:room_management].delete :student_id
+    #   @room_management.arrival_date = nil
+    #   puts "!!!!!!!!------------------------!!!!!!!!!!!!!!!"
+    # end
     respond_to do |format|
       if @room_management.update(room_management_params)
         format.html { redirect_to @room_management, notice: 'Room management was successfully updated.' }
@@ -81,6 +81,11 @@ class RoomManagementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_management_params
-      params.require(:room_management).permit(:room_no, :category_no, :dorm, :status, :student_id, :arrival_date, :user_id)
+      if params[:room_management][:status] == "Available" then
+        params.require(:room_management).permit(:room_no, :category_no, :dorm, :status, :user_id)
+      else
+        params.require(:room_management).permit(:room_no, :category_no, :dorm, :status, :student_id, :arrival_date, :user_id)
+      end
+
     end
 end
