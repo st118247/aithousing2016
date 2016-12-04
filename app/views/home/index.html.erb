@@ -8,6 +8,7 @@
           <li><%= link_to "List of users", administration_userlist_path %></li>
           <li><%= link_to "Statistics", administration_statistics_path %></li>
           <li><%= link_to "Room Management", room_managements_path %></li>
+          <li><%= link_to "Room History", room_histories_path %></li>
         </ul>
       </div>
     <% elsif current_user.officer_role.role == 'Supervisor' %>
