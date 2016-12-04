@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  room_no: MyString
+  category_no: MyString
+  dorm: MyString
+  status: MyString
+  student_id: MyString
+  arrival_date: 2016-12-04 14:44:04
+  user: one
+
+two:
+  room_no: MyString
+  category_no: MyString
+  dorm: MyString
+  status: MyString
+  student_id: MyString
+  arrival_date: 2016-12-04 14:44:04
+  user: two

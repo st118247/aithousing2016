@@ -1,0 +1,2 @@
+json.extract! room_history, :id, :category_no, :dorm, :student_id, :arrival_date, :leave_date, :allocated_user_id, :deallocated_user_id, :RoomManagement_id, :created_at, :updated_at
+json.url room_history_url(room_history, format: :json)

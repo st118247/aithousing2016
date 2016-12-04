@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   get 'home/managehousingdetail'
 
   resources :housing_details
+=======
+  resources :room_histories
+  resources :room_managements
+>>>>>>> d8192f3c6599be352830e3f9d6a79902d3bd9fe4
   get 'administration/userlist'
   get 'administration/banuser'
   get 'administration/activeuser'

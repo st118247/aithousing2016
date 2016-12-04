@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category no:</strong>
+  <%= @room_history.category_no %>
+</p>
+
+<p>
+  <strong>Dorm:</strong>
+  <%= @room_history.dorm %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @room_history.student_id %>
+</p>
+
+<p>
+  <strong>Arrival date:</strong>
+  <%= @room_history.arrival_date %>
+</p>
+
+<p>
+  <strong>Leave date:</strong>
+  <%= @room_history.leave_date %>
+</p>
+
+<p>
+  <strong>Allocated user:</strong>
+  <%= @room_history.allocated_user_id %>
+</p>
+
+<p>
+  <strong>Deallocated user:</strong>
+  <%= @room_history.deallocated_user_id %>
+</p>
+
+<p>
+  <strong>Roommanagement:</strong>
+  <%= @room_history.RoomManagement %>
+</p>
+
+<%= link_to 'Edit', edit_room_history_path(@room_history) %> |
+<%= link_to 'Back', room_histories_path %>
