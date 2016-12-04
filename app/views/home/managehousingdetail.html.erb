@@ -12,6 +12,8 @@
     <th>Version</th>
     <th>Catgory no</th>
     <th>Status</th>
+    <th>Created By</th>
+    <th>Updated By</th>
   </tr>
   </thead>
 
@@ -21,6 +23,8 @@
         <td><%= housing_detail.version_id %></td>
         <td><%= housing_detail.category_id %></td>
         <td><%= housing_detail.status %></td>
+        <td><%= housing_detail.createdby %></td>
+        <td><%= housing_detail.updatedby %></td>
         <td><%= link_to 'Show', housing_detail %></td>
         <td > <%= button_to "Approve", {:controller => 'home', :action=> :btn_approve, :id => housing_detail.id } , remote: true %></td>
         <td > <%= button_to "Reject", {:controller => 'home', :action=> :btn_reject, :id => housing_detail.id } , remote: true %></td>

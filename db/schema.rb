@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204165712) do
+ActiveRecord::Schema.define(version: 20161204203529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20161204165712) do
     t.string   "attachment"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "createdby"
+    t.string   "updatedby"
   end
 
   create_table "officer_roles", force: :cascade do |t|

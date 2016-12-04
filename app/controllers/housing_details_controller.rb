@@ -35,6 +35,7 @@ class HousingDetailsController < ApplicationController
         @housing_detail.version_id = '1'
       end
       @housing_detail.status = 'Waiting for Approval'
+      @housing_detail.createdby = current_user.email
 
       if @housing_detail.save
         format.html { redirect_to @housing_detail, notice: 'Housing detail was successfully created.' }
@@ -54,6 +55,7 @@ class HousingDetailsController < ApplicationController
 
     @housing_detail.status = 'Waiting for Approval'
     @housing_detail.version_id = HousingDetail.where(category_id: @h_old.category_id).maximum(:version_id) + 1
+    @housing_detail.updatedby = current_user.email
 
     respond_to do |format|
       if @housing_detail.update(housing_detail_params)

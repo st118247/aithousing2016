@@ -14,6 +14,8 @@
       <th>Version</th>
       <th>Catgory no</th>
       <th>Status</th>
+      <th>Created By</th>
+      <th>pdated By</th>
     </tr>
   </thead>
 
@@ -39,6 +41,8 @@
         <td><%= housing_detail.version_id %></td>
         <td><%= housing_detail.category_id %></td>
         <td><%= housing_detail.status %></td>
+        <td><%= housing_detail.createdby %></td>
+        <td><%= housing_detail.updatedby %></td>
         <td><%= link_to 'Show', housing_detail %></td>
         <% if housing_detail.status == 'Approved' %>
             <td><%= link_to 'Edit', edit_housing_detail_path(housing_detail) %></td>
