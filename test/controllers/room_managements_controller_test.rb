@@ -22,7 +22,10 @@ class RoomManagementsControllerTest < ActionDispatch::IntegrationTest
   test "should create room_management" do
     sign_in @admin
     assert_difference('RoomManagement.count') do
-      post room_managements_url, params: { room_management: { arrival_date: @room_management.arrival_date, category_no: @room_management.category_no, dorm: @room_management.dorm, room_no: @room_management.room_no, status: @room_management.status, student_id: @room_management.student_id, user_id: @room_management.user_id } }
+      # post room_managements_url, params: { room_management: { category_no: @room_management.category_no, dorm: @room_management.dorm, room_no: @room_management.room_no, status: @room_management.status, user_id: @room_management.user_id } }
+      param = { room_management: { category_no: @room_management.category_no, dorm: @room_management.dorm, room_no: "S123", status: @room_management.status, user_id: @room_management.user_id }}
+      post room_managements_url, params: param
+
     end
 
     assert_redirected_to room_management_url(RoomManagement.last)
