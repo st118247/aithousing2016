@@ -19,7 +19,6 @@
       <div id="admin">
         <h4>Admin</h4>
         <ul>
-          <li><%= link_to "List of users", administration_userlist_path %></li>
           <li><%= link_to "Statistics", administration_statistics_path %></li>
           <li><%= link_to "Room Management", room_managements_path %></li>
           <li><%= link_to "Room History", room_histories_path %></li>
@@ -32,7 +31,6 @@
         <h4>Supervisor</h4>
         <ul>
           <li><%= link_to "List of users", administration_userlist_path %></li>
-          <li><%= link_to "Statistics", administration_statistics_path %></li>
           <li><%= link_to "Room Management", room_managements_path %></li>
           <li><%= link_to "Housing Details Management", home_managehousingdetail_path %></li>
         </ul>
@@ -42,7 +40,6 @@
         <h4>Staffs</h4>
         <ul>
           <li><%= link_to "List of users", administration_userlist_path %></li>
-          <li><%= link_to "Statistics", administration_statistics_path %></li>
           <li><%= link_to "Room Management", room_managements_path %></li>
           <li><%= link_to "Housing Details Entry", housing_details_path %></li>
         </ul>
@@ -51,7 +48,6 @@
       <h4>Newbie</h4>
       <ul>
         <li><%= link_to "List of users", administration_userlist_path %></li>
-        <li><%= link_to "Statistics", administration_statistics_path %></li>
       </ul>
     <% end %>
   <% else %>

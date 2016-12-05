@@ -48,7 +48,7 @@ class AdministrationControllerTest < ActionDispatch::IntegrationTest
     ability = Ability.new(@manager)
     # assert ability.can?(:activeuser, :administration)
     get administration_activeuser_url, params: { which_user: @staff.id }
-    assert_redirected_to administration_userlist_url
+    assert_redirected_to administration_statistics_url
   end
 
   test "admin should ban user " do
@@ -56,7 +56,7 @@ class AdministrationControllerTest < ActionDispatch::IntegrationTest
     ability = Ability.new(@admin)
     # assert ability.can?(:activeuser, :administration)
     get administration_banuser_url, params: { which_user: @staff.id }
-    assert_redirected_to administration_userlist_url
+    assert_redirected_to administration_statistics_url
   end
 
   test "admin should assign role " do
@@ -64,6 +64,6 @@ class AdministrationControllerTest < ActionDispatch::IntegrationTest
     ability = Ability.new(@admin)
     # assert ability.can?(:activeuser, :administration)
     post administration_assignrole_url, params: { which_user: @newuser.id, assignRole: {officer_role: @role_staff.id} }
-    assert_redirected_to administration_userlist_url
+    assert_redirected_to administration_statistics_url
   end
 end

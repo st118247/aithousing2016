@@ -12,9 +12,9 @@ class AdministrationController < ApplicationController
     @user = User.find(whichuser)
     respond_to do |format|
       if @user.update(status: 'non-active')
-        format.html { redirect_to administration_userlist_path, notice: 'User was successfully updated.' }
+        format.html { redirect_to administration_statistics_path, notice: 'User was successfully updated.' }
       # else
-      #   format.html { redirect_to administration_userlist_path, notice: 'User cannot be updated.' }
+      #   format.html { redirect_to administration_statistics_path, notice: 'User cannot be updated.' }
       end
     end
   end
@@ -24,9 +24,9 @@ class AdministrationController < ApplicationController
     @user = User.find(whichuser)
     respond_to do |format|
       if @user.update(status: 'active')
-        format.html { redirect_to administration_userlist_path, notice: 'User was successfully updated.' }
+        format.html { redirect_to administration_statistics_path, notice: 'User was successfully updated.' }
       # else
-      #   format.html { redirect_to administration_userlist_path, notice: 'User cannot be updated.' }
+      #   format.html { redirect_to administration_statistics_path, notice: 'User cannot be updated.' }
       end
     end
   end
@@ -38,15 +38,15 @@ class AdministrationController < ApplicationController
     @role = OfficerRole.find(newrole)
     respond_to do |format|
       if @user.update(officer_role_id: @role.id)
-        format.html { redirect_to administration_userlist_path, notice: 'User was successfully updated.' }
+        format.html { redirect_to administration_statistics_path, notice: 'User was successfully updated.' }
       # else
-      #   format.html { redirect_to administration_userlist_path, notice: 'User cannot be updated.' }
+      #   format.html { redirect_to administration_statistics_path, notice: 'User cannot be updated.' }
       end
     end
   end
 
   def statistics
-    @user = User.all
+    @user = User.all.order('created_at DESC')
     @role = OfficerRole.all
   end
 end
