@@ -8,6 +8,7 @@ class HousingDetailsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
+    sign_in @admin
     get housing_details_url
     assert_response :success
   end

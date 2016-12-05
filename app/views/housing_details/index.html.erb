@@ -44,9 +44,9 @@
         <td><%= housing_detail.status %></td>
         <td><%= housing_detail.createdby %></td>
         <td><%= housing_detail.updatedby %></td>
-        <td><%= link_to 'Show', housing_detail %> |
+        <td><%= link_to 'Show', housing_detail %>
         <% if housing_detail.status == 'Approved' || current_user.officer_role.role != 'Staff' %>
-            <%= link_to 'Edit', edit_housing_detail_path(housing_detail) %> |
+              | <%= link_to 'Edit', edit_housing_detail_path(housing_detail) %> |
             <%= link_to 'Destroy', housing_detail, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
         </td>
