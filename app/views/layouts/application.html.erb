@@ -11,36 +11,61 @@
 <body>
 <!--<p class="notice"><%# notice %></p>-->
 <!--<p class="alert"><%# alert %></p>-->
-<div class="row" style="background-color: #003000">
-  <div class="col-xs-9 col-md-9 col-sm-9">
+<div class="container" id="container">
+  <div class="header clearfix" style="background-color: #003000">
+    <nav>
+      <ul class="nav nav-pills pull-right", style="margin-top: 10px;">
+        <% if user_signed_in? %>
+            <li role="presentation"><%= link_to "Change Profiles", edit_user_registration_path, class: "btn btn-default", role: "button" %></li>
+            <li role="presentation"><%= link_to "Sign out", destroy_user_session_path, class: "btn btn-default", role: "button", method: :delete %></li>
+        <% else %>
+            <li role="presentation"><%= link_to "Sign up", new_user_registration_path, class: "btn btn-default", role: "button" %></li>
+            or
+            <li role="presentation"><%= link_to "Sign in", new_user_session_path, class: "btn btn-default", role: "button" %></li>
+        <% end %>
+        <% if flash[:error] %>
+            <div id="error">
+              <br><%= flash[:error] %>
+            </div>
+        <% end %>
+      </ul>
+    </nav>
     <%= link_to image_tag("http://www.asdu.ait.ac.th/lib/graphics/logos/aitlogo.gif"), root_path %>
-    <!--<img src="http://www.asdu.ait.ac.th/lib/graphics/logos/aitlogo.gif" border="0" width="120" height="75">-->
     <%= link_to image_tag("http://www.asdu.ait.ac.th/lib/graphics/banners/aitfullname.gif"), root_path %>
-    <!--<img src="http://www.asdu.ait.ac.th/lib/graphics/banners/aitfullname.gif" border="0" width="auto" height="28">-->
   </div>
-  <div class="col-xs-3 col-md-3 col-sm-3" style="color: #f0f0f0">
-    <div id="user_status">
-      <% if user_signed_in? %>
-          Welcome
-          <%= current_user.email %> with <%= current_user.officer_role.role %> ( <%= current_user.officer_role.id %> )
-          <%= link_to "Change Profiles", edit_user_registration_path %>
-          <br>! Not you?
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-      <% else %>
-          <%= link_to "Sign up", new_user_registration_path %>
-          or
-          <%= link_to "Sign in", new_user_session_path %>.
-      <% end %>
-      <% if flash[:error] %>
-          <div id="error">
-            <br><%= flash[:error] %>
-          </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-<br/>
-<div class="container-fluid" id="container">
+  <!--<div class="header clearfix">-->
+    <!--<div style="background-color: #003000">-->
+
+      <!--&lt;!&ndash;<div class="col-xs-9 col-md-9 col-sm-9">&ndash;&gt;-->
+      <!--<%# link_to image_tag("http://www.asdu.ait.ac.th/lib/graphics/logos/aitlogo.gif"), root_path %>-->
+      <!--<%# link_to image_tag("http://www.asdu.ait.ac.th/lib/graphics/banners/aitfullname.gif"), root_path %>-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--&lt;!&ndash;<div class="col-xs-3 col-md-3 col-sm-3" style="color: #f0f0f0">&ndash;&gt;-->
+      <!--<nav>-->
+        <!--<ul class="nav navbar-nav navbar-right">-->
+          <!--&lt;!&ndash;<div id="user_status">&ndash;&gt;-->
+          <!--<%# if user_signed_in? %>-->
+              <!--<li role="presentation"><%# link_to "Change Profiles", edit_user_registration_path, class: "btn btn-default" %></li>-->
+              <!--<li role="presentation"><%# link_to "Sign out", destroy_user_session_path, class: "btn btn-default", method: :delete %></li>-->
+          <!--<%# else %>-->
+              <!--<%# link_to "Sign up", new_user_registration_path %>-->
+              <!--or-->
+              <%# link_to "Sign in", new_user_session_path %>
+          <!--<%# end %>-->
+          <!--<%# if flash[:error] %>-->
+              <!--<div id="error">-->
+                <!--<br>-->
+                <%# flash[:error] %>
+              <!--</div>-->
+          <!--<%# end %>-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--</ul>-->
+      <!--</nav>-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</div>-->
+  <!--</div>-->
+  <br/>
+
   <%= yield %>
 </div>
 <p style="position: absolute; right: 0;">
