@@ -13,13 +13,13 @@
 
 # Admin
 User.create(email: "admin@ait.asia", password: "secret123",
-            password_confirmation: "secret123", staff_id: "ad111111", officer_role_id: @admin.id)
+            password_confirmation: "secret123", staff_id: "ad111111", status: "active", officer_role_id: @admin.id)
 # Supervisor
 User.create(email: "supervisor@ait.asia", password: "secret123",
-            password_confirmation: "secret123", staff_id: "sp111112", officer_role_id: @supervisor.id)
+            password_confirmation: "secret123", staff_id: "sp111112", status: "active", officer_role_id: @supervisor.id)
 # Staff
 User.create(email: "staff@ait.asia", password: "secret123",
-            password_confirmation: "secret123", staff_id: "st111113", officer_role_id: @staff.id)
+            password_confirmation: "secret123", staff_id: "st111113", status: "active", officer_role_id: @staff.id)
 # NoRole
 User.create(email: "newstaff@ait.asia", password: "secret123",
-            password_confirmation: "secret123", staff_id: "st111114", officer_role_id: @norole.id)
+            password_confirmation: "secret123", staff_id: "st111114", status: "active", officer_role_id: @norole.id)
