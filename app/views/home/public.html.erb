@@ -1,49 +1,72 @@
-<h1>Home#public</h1>
-<p>Find me in app/views/home/public.html.erb</p>
+<h1>AIT Accommodation Page for all registered Residents</h1>
+<!--<p>Find me in app/views/home/public.html.erb</p>-->
+
+<% old_cat_id = 0 %>
 
 <table>
-  <thead>
-  <tr>
-    <th>Catgory no</th>
-  <th>Category name</th>
-  <th>Dorm</th>
-  <th>Size</th>
-  <th>Air con</th>
-  <th>Balcony</th>
-  <th>Bathroom</th>
-  <th>Kitchen</th>
-  <th>Furniture</th>
-  <th>Cleaning</th>
-  <th>Description</th>
-  <th>Rent</th>
-  <th>Attachment</th>
-  <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <% old_cat_id = 0 %>
-  <tbody>
   <% @hd.each do |housing_detail| %>
-  <% if housing_detail.category_id != old_cat_id then %>
-  <tr>
-  <td><%= housing_detail.category_id %></td>
-    <% old_cat_id = housing_detail.category_id %>
-  <td><%= housing_detail.category_name %></td>
-  <td><%= housing_detail.dorm %></td>
-  <td><%= housing_detail.size %></td>
-  <td><%= housing_detail.air_con %></td>
-  <td><%= housing_detail.balcony %></td>
-  <td><%= housing_detail.bathroom %></td>
-  <td><%= housing_detail.kitchen %></td>
-  <td><%= housing_detail.furniture %></td>
-  <td><%= housing_detail.cleaning %></td>
-  <td><%= housing_detail.description %></td>
-  <td><%= housing_detail.rent %></td>
-  <td><%= housing_detail.attachment %></td>
-  </tr>
+      <% if housing_detail.category_id != old_cat_id then %>
+          <thead>
+          <tr>
+            <th>Catgory no</th>
+            <th>Category name</th>
+            <th>Dorm</th>
+            <th>Size</th>
+            <th>Air con</th>
+            <th>Balcony</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><%= housing_detail.category_id %></td>
+            <% old_cat_id = housing_detail.category_id %>
+            <td><%= housing_detail.category_name %></td>
+            <td><%= housing_detail.dorm %></td>
+            <td><%= housing_detail.size %></td>
+            <td><%= housing_detail.air_con %></td>
+            <td><%= housing_detail.balcony %></td>
+          </tr>
+          </tbody>
+          <thead>
+          <tr>
+            <th>Bathroom</th>
+            <th>Kitchen</th>
+            <th>Furniture</th>
+            <th>Cleaning</th>
+            <th>Description</th>
+            <th>Rent</th>
+            <th>Attachment</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><%= housing_detail.bathroom %></td>
+            <td><%= housing_detail.kitchen %></td>
+            <td><%= housing_detail.furniture %></td>
+            <td><%= housing_detail.cleaning %></td>
+            <td><%= housing_detail.description %></td>
+            <td><%= housing_detail.rent %></td>
+            <td><%= housing_detail.attachment %></td>
+          </tr>
+          </tbody>
+          <thead>
+          <tr>
+            <th>Sample Pics for Reference only</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <% if housing_detail.attachment.present? then %>
+                <% housing_detail.housingcategorypics.each do |pic| %>
+                    <td><%= image_tag pic.to_s , width: 390, height: 192 %></td>
+                <% end %>
+            <% else %>
+                <td><%= image_tag 'noimage.jpg', width: 390, height: 192  %></td>
+            <% end %>
+          </tr>
+          </tbody>
+      <% end %>
   <% end %>
-  <% end %>
-  </tbody>
 </table>
 
 <br>
