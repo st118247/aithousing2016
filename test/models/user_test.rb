@@ -8,6 +8,6 @@ class UserTest < ActiveSupport::TestCase
     old_user = users(:one)
     email = User.new email: old_user.email
     assert !email.valid?
-    assert_equal "has already been taken", email.errors[:email][0]
+    assert_equal "Email has already been taken", email.errors[:email][0]
   end
 end

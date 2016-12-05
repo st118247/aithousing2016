@@ -1,19 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  room_no: MyString
-  category_no: MyString
-  dorm: MyString
-  status: MyString
-  student_id: MyString
-  arrival_date: 2016-12-04 14:44:04
-  user: one
+  id: 1
+  room_no: "S205"
+  category_no: "3"
+  dorm: "S"
+  status: "Available"
+  user: 1
 
 two:
-  room_no: MyString
-  category_no: MyString
-  dorm: MyString
-  status: MyString
-  student_id: MyString
+  room_no: "A101"
+  category_no: "1"
+  dorm: "A"
+  status: "Occupied"
+  student_id: "st118856"
   arrival_date: 2016-12-04 14:44:04
-  user: two
+  user: 2
