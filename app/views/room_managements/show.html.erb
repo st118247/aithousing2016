@@ -1,39 +1,51 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row vertical-offset-100">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Room: <%= @room_management.room_no %></h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            <strong>Room no:</strong>
+            <%= @room_management.room_no %>
+          </p>
 
-<p>
-  <strong>Room no:</strong>
-  <%= @room_management.room_no %>
-</p>
+          <p>
+            <strong>Category no:</strong>
+            <%= @room_management.category_no %>
+          </p>
 
-<p>
-  <strong>Category no:</strong>
-  <%= @room_management.category_no %>
-</p>
+          <p>
+            <strong>Dorm:</strong>
+            <%= @room_management.dorm %>
+          </p>
 
-<p>
-  <strong>Dorm:</strong>
-  <%= @room_management.dorm %>
-</p>
+          <p>
+            <strong>Status:</strong>
+            <%= @room_management.status %>
+          </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @room_management.status %>
-</p>
+          <p>
+            <strong>Student:</strong>
+            <%= @room_management.student_id %>
+          </p>
 
-<p>
-  <strong>Student:</strong>
-  <%= @room_management.student_id %>
-</p>
+          <p>
+            <strong>Arrival date:</strong>
+            <%= @room_management.arrival_date %>
+          </p>
 
-<p>
-  <strong>Arrival date:</strong>
-  <%= @room_management.arrival_date %>
-</p>
+          <p>
+            <strong>User:</strong>
+            <%= @room_management.user.email %>
+          </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @room_management.user.email %>
-</p>
-
-<%= link_to 'Edit', edit_room_management_path(@room_management) %> |
-<%= link_to 'Back', room_managements_path %>
+          <%= link_to 'Edit', edit_room_management_path(@room_management) %> |
+          <%= link_to 'Back', room_managements_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
