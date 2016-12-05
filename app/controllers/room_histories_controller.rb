@@ -31,9 +31,9 @@ class RoomHistoriesController < ApplicationController
       if @room_history.save
         format.html { redirect_to @room_history, notice: 'Room history was successfully created.' }
         format.json { render :show, status: :created, location: @room_history }
-      else
-        format.html { render :new }
-        format.json { render json: @room_history.errors, status: :unprocessable_entity }
+      # else
+      #   format.html { render :new }
+      #   format.json { render json: @room_history.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,9 +45,9 @@ class RoomHistoriesController < ApplicationController
       if @room_history.update(room_history_params)
         format.html { redirect_to @room_history, notice: 'Room history was successfully updated.' }
         format.json { render :show, status: :ok, location: @room_history }
-      else
-        format.html { render :edit }
-        format.json { render json: @room_history.errors, status: :unprocessable_entity }
+      # else
+      #   format.html { render :edit }
+      #   format.json { render json: @room_history.errors, status: :unprocessable_entity }
       end
     end
   end
