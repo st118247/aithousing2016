@@ -14,5 +14,5 @@ two:
   dorm: "A"
   status: "Occupied"
   student_id: "st118856"
-  arrival_date: 2016-12-04 14:44:04
+  arrival_date: "2016-12-04 14:44:04"
   user_id: 2
