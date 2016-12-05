@@ -81,7 +81,7 @@ test: &test
 production:
   <<: *default
   database: aithousing2016_production
-  username: aithousing2016
+  username: problemset
   password: <%= ENV['AITHOUSING2016_DATABASE_PASSWORD'] %>
 
 cucumber:
