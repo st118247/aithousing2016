@@ -6,7 +6,7 @@ one:
   category_no: "3"
   dorm: "S"
   status: "Available"
-  user: 1
+  user_id: 1
 
 two:
   room_no: "A101"
@@ -15,4 +15,4 @@ two:
   status: "Occupied"
   student_id: "st118856"
   arrival_date: 2016-12-04 14:44:04
-  user: 2
+  user_id: 2

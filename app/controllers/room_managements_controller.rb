@@ -31,9 +31,9 @@ class RoomManagementsController < ApplicationController
       if @room_management.save
         format.html { redirect_to @room_management, notice: 'Room management was successfully created.' }
         format.json { render :show, status: :created, location: @room_management }
-      else
-        format.html { render :new }
-        format.json { render json: @room_management.errors, status: :unprocessable_entity }
+      # else
+      #   format.html { render :new }
+      #   format.json { render json: @room_management.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -67,9 +67,9 @@ class RoomManagementsController < ApplicationController
       if @room_management.update(room_management_params)
         format.html { redirect_to @room_management, notice: 'Room management was successfully updated.' }
         format.json { render :show, status: :ok, location: @room_management }
-      else
-        format.html { render :edit }
-        format.json { render json: @room_management.errors, status: :unprocessable_entity }
+      # else
+      #   format.html { render :edit }
+      #   format.json { render json: @room_management.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -93,9 +93,13 @@ class RoomManagementsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_management_params
       if params[:room_management][:status] == "Available" then
-        @check = RoomManagement.find(params[:id])
-        if !@check.student_id.nil?
-          params.require(:room_management).permit(:room_no, :category_no, :dorm, :arrival_date, :user_id)
+        if !params[:id].nil?
+          @check = RoomManagement.find(params[:id])
+          if !@check.student_id.nil?
+            params.require(:room_management).permit(:room_no, :category_no, :dorm, :arrival_date, :user_id)
+          else
+            params.require(:room_management).permit(:room_no, :category_no, :dorm, :status, :user_id)
+          end
         else
           params.require(:room_management).permit(:room_no, :category_no, :dorm, :status, :user_id)
         end
