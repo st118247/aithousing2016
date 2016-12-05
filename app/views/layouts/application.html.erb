@@ -9,12 +9,10 @@
 </head>
 
 <body>
-<!--<p class="notice"><%# notice %></p>-->
-<!--<p class="alert"><%# alert %></p>-->
 <div class="container" id="container">
   <div class="header clearfix" style="background-color: #003000">
     <nav>
-      <ul class="nav nav-pills pull-right", style="margin-top: 10px;">
+      <ul class="nav nav-pills pull-right " , style="margin-top: 10px;">
         <% if user_signed_in? %>
             <li role="presentation"><%= link_to "Change Profiles", edit_user_registration_path, class: "btn btn-default", role: "button" %></li>
             <li role="presentation"><%= link_to "Sign out", destroy_user_session_path, class: "btn btn-default", role: "button", method: :delete %></li>
@@ -23,54 +21,66 @@
             or
             <li role="presentation"><%= link_to "Sign in", new_user_session_path, class: "btn btn-default", role: "button" %></li>
         <% end %>
-        <% if flash[:error] %>
-            <div id="error">
-              <br><%= flash[:error] %>
-            </div>
-        <% end %>
       </ul>
     </nav>
     <%= link_to image_tag("http://www.asdu.ait.ac.th/lib/graphics/logos/aitlogo.gif"), root_path %>
     <%= link_to image_tag("http://www.asdu.ait.ac.th/lib/graphics/banners/aitfullname.gif"), root_path %>
   </div>
   <!--<div class="header clearfix">-->
-    <!--<div style="background-color: #003000">-->
+  <!--<div style="background-color: #003000">-->
 
-      <!--&lt;!&ndash;<div class="col-xs-9 col-md-9 col-sm-9">&ndash;&gt;-->
-      <!--<%# link_to image_tag("http://www.asdu.ait.ac.th/lib/graphics/logos/aitlogo.gif"), root_path %>-->
-      <!--<%# link_to image_tag("http://www.asdu.ait.ac.th/lib/graphics/banners/aitfullname.gif"), root_path %>-->
-      <!--&lt;!&ndash;</div>&ndash;&gt;-->
-      <!--&lt;!&ndash;<div class="col-xs-3 col-md-3 col-sm-3" style="color: #f0f0f0">&ndash;&gt;-->
-      <!--<nav>-->
-        <!--<ul class="nav navbar-nav navbar-right">-->
-          <!--&lt;!&ndash;<div id="user_status">&ndash;&gt;-->
-          <!--<%# if user_signed_in? %>-->
-              <!--<li role="presentation"><%# link_to "Change Profiles", edit_user_registration_path, class: "btn btn-default" %></li>-->
-              <!--<li role="presentation"><%# link_to "Sign out", destroy_user_session_path, class: "btn btn-default", method: :delete %></li>-->
-          <!--<%# else %>-->
-              <!--<%# link_to "Sign up", new_user_registration_path %>-->
-              <!--or-->
-              <%# link_to "Sign in", new_user_session_path %>
-          <!--<%# end %>-->
-          <!--<%# if flash[:error] %>-->
-              <!--<div id="error">-->
-                <!--<br>-->
-                <%# flash[:error] %>
-              <!--</div>-->
-          <!--<%# end %>-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--</ul>-->
-      <!--</nav>-->
-      <!--&lt;!&ndash;</div>&ndash;&gt;-->
-    <!--</div>-->
+  <!--&lt;!&ndash;<div class="col-xs-9 col-md-9 col-sm-9">&ndash;&gt;-->
+  <!--<%# link_to image_tag("http://www.asdu.ait.ac.th/lib/graphics/logos/aitlogo.gif"), root_path %>-->
+  <!--<%# link_to image_tag("http://www.asdu.ait.ac.th/lib/graphics/banners/aitfullname.gif"), root_path %>-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="col-xs-3 col-md-3 col-sm-3" style="color: #f0f0f0">&ndash;&gt;-->
+  <!--<nav>-->
+  <!--<ul class="nav navbar-nav navbar-right">-->
+  <!--&lt;!&ndash;<div id="user_status">&ndash;&gt;-->
+  <!--<%# if user_signed_in? %>-->
+  <!--<li role="presentation"><%# link_to "Change Profiles", edit_user_registration_path, class: "btn btn-default" %></li>-->
+  <!--<li role="presentation"><%# link_to "Sign out", destroy_user_session_path, class: "btn btn-default", method: :delete %></li>-->
+  <!--<%# else %>-->
+  <!--<%# link_to "Sign up", new_user_registration_path %>-->
+  <!--or-->
+  <%# link_to "Sign in", new_user_session_path %>
+  <!--<%# end %>-->
+  <!--<%# if flash[:error] %>-->
+  <!--<div id="error">-->
+  <!--<br>-->
+  <%# flash[:error] %>
+  <!--</div>-->
+  <!--<%# end %>-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--</ul>-->
+  <!--</nav>-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--</div>-->
   <!--</div>-->
   <br/>
-
+  <% if flash[:error] %>
+      <div id="error">
+        <br><%= flash[:error] %>
+      </div>
+  <% end %>
+  <% if !notice.nil? %>
+      <div class="container">
+        <div class="col-md-4 col-md-offset-4">
+          <div class="alert notice alert-success fade-in"><%= notice %></div>
+        </div>
+      </div>
+  <% elsif !alert.nil? %>
+      <div class="container">
+        <div class="col-md-4 col-md-offset-4">
+          <div class="alert alert-warning fade-in"><%= alert %></div>
+        </div>
+      </div>
+  <% end %>
   <%= yield %>
+  <footer class="footer">
+    <a href="http://validator.w3.org/check?uri=referer" class="pull-right"><img width="88" height="31" alt="Valid XHTML 1.0!" src="http://www.w3.org/Icons/valid-xhtml10"/></a>
+    <p>&copy; 2016 Benya & Parth Rails Company, Inc.</p>
+  </footer>
 </div>
-<p style="position: absolute; right: 0;">
-  <a href="http://validator.w3.org/check?uri=referer"><img width="88" height="31" alt="Valid XHTML 1.0!" src="http://www.w3.org/Icons/valid-xhtml10"/></a>
-  <br>Benya and Parth.
-</p>
 </body>
 </html>

@@ -1,64 +1,82 @@
-<style>
-  table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
-  th, td {
-    padding: 5px;
-  }
-  th {
-    text-align: left;
-  }
-</style>
-
 <!--<h1>Accommodation office</h1>-->
-<% if user_signed_in? %>
-  <% if current_user.status == 'active' %>
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Welcome <%= current_user.email %></h1>
-        <p>This is the Portal page. All accessible links are displayed below.</p>
-      </div>
-    </div>
-    <% if current_user.officer_role.role == 'Admin' %>
-      <div id="admin">
-        <h4>Admin</h4>
-        <ul>
-          <li><%= link_to "Statistics", administration_statistics_path %></li>
-          <li><%= link_to "Room Management", room_managements_path %></li>
-          <li><%= link_to "Room History", room_histories_path %></li>
-          <li><%= link_to "Housing Details Management", home_managehousingdetail_path %></li>
-          <li><%= link_to "Housing Details Entry", housing_details_path %></li>
-        </ul>
-      </div>
-    <% elsif current_user.officer_role.role == 'Supervisor' %>
-      <div id = "supervisor">
-        <h4>Supervisor</h4>
-        <ul>
-          <li><%= link_to "List of users", administration_userlist_path %></li>
-          <li><%= link_to "Room Management", room_managements_path %></li>
-          <li><%= link_to "Housing Details Management", home_managehousingdetail_path %></li>
-        </ul>
-      </div>
-    <% elsif current_user.officer_role.role == 'Staff' %>
-      <div id = "staff">
-        <h4>Staffs</h4>
-        <ul>
-          <li><%= link_to "List of users", administration_userlist_path %></li>
-          <li><%= link_to "Room Management", room_managements_path %></li>
-          <li><%= link_to "Housing Details Entry", housing_details_path %></li>
-        </ul>
-      </div>
-    <% else %>
-      <h4>Newbie</h4>
-      <ul>
-        <li><%= link_to "List of users", administration_userlist_path %></li>
-      </ul>
-    <% end %>
-  <% else %>
-    <h4 style="color: #cc0000">You are not a active user.</h4>
-  <% end %>
-<% end %>
-<p>
-<h2>Public page</h2>
+<p><h2>Public page</h2>
 To view the Housing details of AIT residences please click here <%= link_to 'here', home_public_url, target: "_blank" %> </p>
+<% if user_signed_in? %>
+    <% if current_user.status == 'active' %>
+        <div class="jumbotron">
+          <div class="container">
+            <h1>Welcome <%= current_user.email %></h1>
+            <p>This is the Portal page. All accessible links are displayed below.</p>
+          </div>
+        </div>
+
+
+        <% if current_user.officer_role.role == 'Admin' %>
+            <div id="admin">
+              <div class="container marketing col-md-offset-1">
+                <div class="col-lg-2" style="text-align: center">
+                  <%= link_to image_tag(asset_path('graph.png', :alt => 'Statistics'), width: '80%'), root_path %>
+                  <h4><%= link_to "Statistics", administration_statistics_path %></h4>
+                </div>
+                <div class="col-lg-2" style="text-align: center">
+                  <%= image_tag(asset_path('keys-icon.png', :alt => 'Room Management'), width: '80%') %>
+                  <h4><%= link_to "Room Management", room_managements_path %></h4>
+                </div>
+                <div class="col-lg-2" style="text-align: center">
+                  <%= image_tag(asset_path('history.png', :alt => 'Room History'), width: '80%') %>
+                  <h4><%= link_to "Room History", room_histories_path %></h4>
+                </div>
+                <div class="col-lg-2" style="text-align: center">
+                  <%= image_tag(asset_path('approved', :alt => 'Housing Details Management'), width: '80%') %>
+                  <h4><%= link_to "Housing Details Management", home_managehousingdetail_path %></h4>
+                </div>
+                <div class="col-lg-2" style="text-align: center">
+                  <%= image_tag(asset_path('cms-flat-icon.png', :alt => 'Housing Details Entry'), width: '80%') %>
+                  <h4><%= link_to "Housing Details Entry", housing_details_path %></h4>
+                </div>
+              </div>
+            </div>
+        <% elsif current_user.officer_role.role == 'Supervisor' %>
+            <div id="supervisor">
+              <div class="container marketing col-md-offset-3">
+                <div class="col-lg-2" style="text-align: center">
+                  <%= image_tag(asset_path('list.png', :alt => 'List of users'), width: '80%') %>
+                  <h4><%= link_to "List of users", administration_userlist_path %></h4>
+                </div>
+                <div class="col-lg-2" style="text-align: center">
+                  <%= image_tag(asset_path('keys-icon.png', :alt => 'Room Management'), width: '80%') %>
+                  <h4><%= link_to "Room Management", room_managements_path %></h4>
+                </div>
+                <div class="col-lg-2" style="text-align: center">
+                  <%= image_tag(asset_path('approved', :alt => 'Housing Details Management'), width: '80%') %>
+                  <h4><%= link_to "Housing Details Management", home_managehousingdetail_path %></h4>
+                </div>
+              </div>
+            </div>
+        <% elsif current_user.officer_role.role == 'Staff' %>
+            <div id="staff">
+              <div class="container marketing col-md-offset-3">
+                <div class="col-lg-2" style="text-align: center">
+                  <%= image_tag(asset_path('list.png', :alt => 'List of users'), width: '80%') %>
+                  <h4><%= link_to "List of users", administration_userlist_path %></h4>
+                </div>
+                <div class="col-lg-2" style="text-align: center">
+                  <%= image_tag(asset_path('keys-icon.png', :alt => 'Room Management'), width: '80%') %>
+                  <h4><%= link_to "Room Management", room_managements_path %></h4>
+                </div>
+                <div class="col-lg-2" style="text-align: center">
+                  <%= image_tag(asset_path('cms-flat-icon.png', :alt => 'Housing Details Entry'), width: '80%') %>
+                  <h4><%= link_to "Housing Details Entry", housing_details_path %></h4>
+                </div>
+              </div>
+            </div>
+        <% else %>
+            <h4>Newbie</h4>
+            <ul>
+              <li><%= link_to "List of users", administration_userlist_path %></li>
+            </ul>
+        <% end %>
+    <% else %>
+        <h4 style="color: #cc0000">You are not a active user.</h4>
+    <% end %>
+<% end %>
