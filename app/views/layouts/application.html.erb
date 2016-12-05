@@ -12,12 +12,12 @@
     <!--<p class="notice"><%# notice %></p>-->
     <!--<p class="alert"><%# alert %></p>-->
 
-    <div id="container">
+    <div class="container-fluid" id="container">
       <div id="user_status">
         <% if user_signed_in? %>
             Welcome
             <%= current_user.email %> with <%= current_user.officer_role.role %> ( <%= current_user.officer_role.id %> )
-            <%= link_to "Change Password", edit_user_registration_path %>
+            <%= link_to "Change Profiles", edit_user_registration_path %>
             <br>! Not you?
             <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
         <% else %>
