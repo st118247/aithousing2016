@@ -98,7 +98,7 @@ When(/^I sign in$/) do
 end
 
 Then(/^I should see a link of registered users$/) do
-  expect(page).to have_link('List of user', href: administration_userlist_path)
+  expect(page).to have_link('List of users', href: administration_userlist_path)
 end
 
 When(/^I click the link of registered users$/) do
