@@ -12,16 +12,14 @@ class AdministrationControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get userlist" do
-    sign_in @staff
     get administration_userlist_url
     assert_response :success
   end
 
-  test "should get statistics" do
-    sign_in @staff
-    get administration_statistics_url
-    assert_response :success
-  end
+  # test "should get statistics" do
+  #   get administration_statistics_url
+  #   assert_response :success
+  # end
 
   test "should not active user validating" do
     sign_in @staff

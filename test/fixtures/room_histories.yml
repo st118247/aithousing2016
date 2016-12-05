@@ -1,21 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  category_no: MyString
-  dorm: MyString
-  student_id: MyString
-  arrival_date: 2016-12-04 22:44:48
+  category_no: "3"
+  dorm: "S"
+  student_id: "st111111"
+  arrival_date: 2014-12-04 14:44:04
   leave_date: 2016-12-04 22:44:48
   allocated_user_id: 1
   deallocated_user_id: 1
-  RoomManagement: one
+  room_management_id: 1
 
 two:
-  category_no: MyString
-  dorm: MyString
-  student_id: MyString
-  arrival_date: 2016-12-04 22:44:48
-  leave_date: 2016-12-04 22:44:48
+  category_no: "1"
+  dorm: "A"
+  student_id: "st118856"
+  arrival_date: 2016-12-04 14:44:04
+  leave_date: 2018-12-04 22:44:48
   allocated_user_id: 1
-  deallocated_user_id: 1
-  RoomManagement: two
+  deallocated_user_id: 2
+  room_management_id: 2

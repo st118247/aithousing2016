@@ -8,6 +8,6 @@ class RoomManagementTest < ActiveSupport::TestCase
     old_room = room_managements(:one)
     room_no = RoomManagement.new room_no: old_room.room_no
     assert !room_no.valid?
-    assert_equal "Room no has already been taken", room_no.errors[:room_no][0]
+    assert_equal "has already been taken", room_no.errors[:room_no][0]
   end
 end
