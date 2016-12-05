@@ -13,8 +13,8 @@ class AdministrationController < ApplicationController
     respond_to do |format|
       if @user.update(status: 'non-active')
         format.html { redirect_to administration_userlist_path, notice: 'User was successfully updated.' }
-      else
-        format.html { redirect_to administration_userlist_path, notice: 'User cannot be updated.' }
+      # else
+      #   format.html { redirect_to administration_userlist_path, notice: 'User cannot be updated.' }
       end
     end
   end
@@ -25,8 +25,8 @@ class AdministrationController < ApplicationController
     respond_to do |format|
       if @user.update(status: 'active')
         format.html { redirect_to administration_userlist_path, notice: 'User was successfully updated.' }
-      else
-        format.html { redirect_to administration_userlist_path, notice: 'User cannot be updated.' }
+      # else
+      #   format.html { redirect_to administration_userlist_path, notice: 'User cannot be updated.' }
       end
     end
   end
@@ -39,8 +39,8 @@ class AdministrationController < ApplicationController
     respond_to do |format|
       if @user.update(officer_role_id: @role.id)
         format.html { redirect_to administration_userlist_path, notice: 'User was successfully updated.' }
-      else
-        format.html { redirect_to administration_userlist_path, notice: 'User cannot be updated.' }
+      # else
+      #   format.html { redirect_to administration_userlist_path, notice: 'User cannot be updated.' }
       end
     end
   end

@@ -16,10 +16,11 @@ class AdministrationControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # test "should get statistics" do
-  #   get administration_statistics_url
-  #   assert_response :success
-  # end
+  test "should get statistics" do
+    sign_in @admin
+    get administration_statistics_url
+    assert_response :success
+  end
 
   test "should not active user validating" do
     sign_in @staff
