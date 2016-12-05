@@ -75,10 +75,9 @@ end
 #   visit '/'
 # end
 
-Then(/^I should see my signed in with my role$/) do
+Then(/^I should see my signed$/) do
   # save_and_open_page
   expect(page).to have_content "#{@user_staff.email}"
-  expect(page).to have_content "#{@no_role.role}"
 end
 
 ################################################################

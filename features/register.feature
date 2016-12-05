@@ -14,4 +14,4 @@ Feature: Register
     Then I see a form to fill in my registration detail
     When I submit the registration form
     Then I am redirected to the start page
-    And I should see my signed in with my role
+    And I should see my signed
