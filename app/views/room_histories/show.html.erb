@@ -1,44 +1,56 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row vertical-offset-100">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Room: <%= @room_history.room_management.room_no %></h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            <strong>Category no:</strong>
+            <%= @room_history.category_no %>
+          </p>
 
-<p>
-  <strong>Category no:</strong>
-  <%= @room_history.category_no %>
-</p>
+          <p>
+            <strong>Dorm:</strong>
+            <%= @room_history.dorm %>
+          </p>
 
-<p>
-  <strong>Dorm:</strong>
-  <%= @room_history.dorm %>
-</p>
+          <p>
+            <strong>Student:</strong>
+            <%= @room_history.student_id %>
+          </p>
 
-<p>
-  <strong>Student:</strong>
-  <%= @room_history.student_id %>
-</p>
+          <p>
+            <strong>Arrival date:</strong>
+            <%= @room_history.arrival_date.strftime("%Y-%m-%d") %>
+          </p>
 
-<p>
-  <strong>Arrival date:</strong>
-  <%= @room_history.arrival_date %>
-</p>
+          <p>
+            <strong>Leave date:</strong>
+            <%= @room_history.leave_date.strftime("%Y-%m-%d") %>
+          </p>
 
-<p>
-  <strong>Leave date:</strong>
-  <%= @room_history.leave_date %>
-</p>
+          <p>
+            <strong>Allocated user:</strong>
+            <%= @room_history.allocated_user_id %>
+          </p>
 
-<p>
-  <strong>Allocated user:</strong>
-  <%= @room_history.allocated_user_id %>
-</p>
+          <p>
+            <strong>Deallocated user:</strong>
+            <%= @room_history.deallocated_user_id %>
+          </p>
 
-<p>
-  <strong>Deallocated user:</strong>
-  <%= @room_history.deallocated_user_id %>
-</p>
+          <p>
+            <strong>Room Management:</strong>
+            <%= @room_history.room_management.room_no %>
+          </p>
 
-<p>
-  <strong>Roommanagement:</strong>
-  <%= @room_history.room_management %>
-</p>
-
-<%= link_to 'Edit', edit_room_history_path(@room_history) %> |
-<%= link_to 'Back', room_histories_path %>
+          <%= link_to 'Edit', edit_room_history_path(@room_history) %> |
+          <%= link_to 'Back', room_histories_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

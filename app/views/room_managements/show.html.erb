@@ -34,7 +34,11 @@
 
           <p>
             <strong>Arrival date:</strong>
-            <%= @room_management.arrival_date %>
+            <% if !@room_management.arrival_date.nil? %>
+              <%= @room_management.arrival_date.strftime("%Y-%m-%d") %>
+            <% else %>
+              <%= @room_management.arrival_date %>
+            <% end %>
           </p>
 
           <p>

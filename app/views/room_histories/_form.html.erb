@@ -1,57 +1,59 @@
-<%= form_for(room_history) do |f| %>
-  <% if room_history.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(room_history.errors.count, "error") %> prohibited this room_history from being saved:</h2>
+<div class="panel-body">
+  <%= form_for(room_history) do |f| %>
+      <% if room_history.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(room_history.errors.count, "error") %> prohibited this room_history from being saved:</h2>
 
-      <ul>
-      <% room_history.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+              <% room_history.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
       <% end %>
-      </ul>
-    </div>
+
+      <div class="field">
+        <%= f.label :category_no %>
+        <%= f.text_field :category_no %>
+      </div>
+
+      <div class="field">
+        <%= f.label :dorm %>
+        <%= f.text_field :dorm %>
+      </div>
+
+      <div class="field">
+        <%= f.label :student_id %>
+        <%= f.text_field :student_id %>
+      </div>
+
+      <div class="field">
+        <%= f.label :arrival_date %>
+        <%= f.datetime_select :arrival_date %>
+      </div>
+
+      <div class="field">
+        <%= f.label :leave_date %>
+        <%= f.datetime_select :leave_date %>
+      </div>
+
+      <div class="field">
+        <%= f.label :allocated_user_id %>
+        <%= f.number_field :allocated_user_id %>
+      </div>
+
+      <div class="field">
+        <%= f.label :deallocated_user_id %>
+        <%= f.number_field :deallocated_user_id %>
+      </div>
+
+      <div class="field">
+        <%= f.label :room_management_id %>
+        <%= f.text_field :room_management_id %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :category_no %>
-    <%= f.text_field :category_no %>
-  </div>
-
-  <div class="field">
-    <%= f.label :dorm %>
-    <%= f.text_field :dorm %>
-  </div>
-
-  <div class="field">
-    <%= f.label :student_id %>
-    <%= f.text_field :student_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :arrival_date %>
-    <%= f.datetime_select :arrival_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :leave_date %>
-    <%= f.datetime_select :leave_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :allocated_user_id %>
-    <%= f.number_field :allocated_user_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :deallocated_user_id %>
-    <%= f.number_field :deallocated_user_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :room_management_id %>
-    <%= f.text_field :room_management_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
