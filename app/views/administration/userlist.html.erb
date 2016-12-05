@@ -11,9 +11,6 @@
     <th>email</th>
     <th>Role</th>
     <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
   </thead>
 <% if !@user.nil? %>
@@ -24,30 +21,30 @@
         <td><%= user.email %></td>
         <td><%= user.officer_role.role %></td>
         <td><%= user.status %></td>
-        <td>
+
           <% if user_signed_in? %>
+
               <% if current_user.officer_role.role == 'Admin' %>
                   <% if user.status == 'active' %>
-                      <%= link_to 'Ban', administration_banuser_path(:which_user => user.id) %>
+                    <td><%= link_to 'Ban', administration_banuser_path(:which_user => user.id) %>
                   <% else %>
-                      <%= link_to 'Active', administration_activeuser_path(:which_user => user.id) %>
+                    <td><%= link_to 'Active', administration_activeuser_path(:which_user => user.id) %>
                   <% end %>
               <% end %>
+
           <% end %>
           <%#= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-        <td>
+
           <% if user_signed_in? %>
               <% if current_user.officer_role.role == 'Admin' %>
                   <%= form_tag(administration_assignrole_path, id: user.id, method: "post") do %>
-                      <%= collection_select(:assignRole, :officer_role, OfficerRole.where.not(id: user.officer_role_id).order(id: :desc), :id, :role) %></td>
+                      <%= collection_select(:assignRole, :officer_role, OfficerRole.where.not(id: user.officer_role_id).order(id: :desc), :id, :role) %>
                       <%= hidden_field_tag(:which_user, user.id) %>
                       <%#= link_to 'Assign Role', administration_assignrole_path(:which_user => user.id, :new_role => :assignRole), method: :post %>
-                      <td><%= submit_tag('Assign Role') %>
+                      <%= submit_tag('Assign Role') %></td>
                   <% end %>
               <% end %>
           <% end %>
-        </td>
         <!--<td><%#= book.publisyher %></td>-->
         <!--<td><%#= link_to 'Show', book %></td>-->
         <!--<td><%#= link_to 'Edit', edit_book_path(book) %></td>-->
