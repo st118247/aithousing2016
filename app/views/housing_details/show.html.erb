@@ -1,90 +1,101 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row vertical-offset-100">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Category: <%= @housing_detail.category_name %></h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            <strong>Version:</strong>
+            <%= @housing_detail.version_id %>
+          </p>
 
-<p>
-  <strong>Version:</strong>
-  <%= @housing_detail.version_id %>
-</p>
+          <p>
+            <strong>Catgory no:</strong>
+            <%= @housing_detail.category_id %>
+          </p>
 
-<p>
-  <strong>Catgory no:</strong>
-  <%= @housing_detail.category_id %>
-</p>
+          <p>
+            <strong>Status:</strong>
+            <%= @housing_detail.status %>
+          </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @housing_detail.status %>
-</p>
+          <p>
+            <strong>Category name:</strong>
+            <%= @housing_detail.category_name %>
+          </p>
 
-<p>
-  <strong>Category name:</strong>
-  <%= @housing_detail.category_name %>
-</p>
+          <p>
+            <strong>Dorm:</strong>
+            <%= @housing_detail.dorm %>
+          </p>
 
-<p>
-  <strong>Dorm:</strong>
-  <%= @housing_detail.dorm %>
-</p>
+          <p>
+            <strong>Size:</strong>
+            <%= @housing_detail.size %>
+          </p>
 
-<p>
-  <strong>Size:</strong>
-  <%= @housing_detail.size %>
-</p>
+          <p>
+            <strong>Air con:</strong>
+            <%= @housing_detail.air_con %>
+          </p>
 
-<p>
-  <strong>Air con:</strong>
-  <%= @housing_detail.air_con %>
-</p>
+          <p>
+            <strong>Balcony:</strong>
+            <%= @housing_detail.balcony %>
+          </p>
 
-<p>
-  <strong>Balcony:</strong>
-  <%= @housing_detail.balcony %>
-</p>
+          <p>
+            <strong>Bathroom:</strong>
+            <%= @housing_detail.bathroom %>
+          </p>
 
-<p>
-  <strong>Bathroom:</strong>
-  <%= @housing_detail.bathroom %>
-</p>
+          <p>
+            <strong>Kitchen:</strong>
+            <%= @housing_detail.kitchen %>
+          </p>
 
-<p>
-  <strong>Kitchen:</strong>
-  <%= @housing_detail.kitchen %>
-</p>
+          <p>
+            <strong>Furniture:</strong>
+            <%= @housing_detail.furniture %>
+          </p>
 
-<p>
-  <strong>Furniture:</strong>
-  <%= @housing_detail.furniture %>
-</p>
+          <p>
+            <strong>Cleaning:</strong>
+            <%= @housing_detail.cleaning %>
+          </p>
 
-<p>
-  <strong>Cleaning:</strong>
-  <%= @housing_detail.cleaning %>
-</p>
+          <p style="overflow: auto;">
+            <strong>Description:</strong>
+            <%= @housing_detail.description %>
+          </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @housing_detail.description %>
-</p>
+          <p>
+            <strong>Rent:</strong>
+            <%= @housing_detail.rent %>
+          </p>
 
-<p>
-  <strong>Rent:</strong>
-  <%= @housing_detail.rent %>
-</p>
+          <p>
+            <strong>Attachment:</strong>
+            <%= @housing_detail.attachment %>
+          </p>
 
-<p>
-  <strong>Attachment:</strong>
-  <%= @housing_detail.attachment %>
-</p>
+          <p style="text-align: center">
+            <% if @housing_detail.attachment.present? then %>
+                <% @housing_detail.housingcategorypics.each do |pic| %>
+                    <%= image_tag pic.to_s, width: 390, height: 'auto' %>
+                    <br/>
+                <% end %>
+            <% else %>
+                <%= image_tag 'noimage.jpg', width: 390, height: 'auto' %>
+            <% end %>
+          </p>
 
-<p>
-  <% if @housing_detail.attachment.present? then %>
-      <% @housing_detail.housingcategorypics.each do |pic| %>
-          <%= image_tag pic.to_s , width: 390, height: 192 %>
-          <br />
-      <% end %>
-  <% else %>
-      <%= image_tag 'noimage.jpg', width: 390, height: 192  %>
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_housing_detail_path(@housing_detail) %> |
-<%= link_to 'Back', housing_details_path %>
+          <%= link_to 'Edit', edit_housing_detail_path(@housing_detail) %> |
+          <%= link_to 'Back', _back_url %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

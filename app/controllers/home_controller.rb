@@ -21,6 +21,7 @@ class HomeController < ApplicationController
   def btn_approve
     @housingdetail = HousingDetail.find(params[:id])
     @housingdetail.status = "Approved"
+    @housingdetail.updatedby = current_user.email
     @housingdetail.save
     redirect_to home_managehousingdetail_path
   end
@@ -28,6 +29,7 @@ class HomeController < ApplicationController
   def btn_reject
     @housingdetail = HousingDetail.find(params[:id])
     @housingdetail.status = "Rejected"
+    @housingdetail.updatedby = current_user.email
     @housingdetail.save
     redirect_to home_managehousingdetail_path
   end

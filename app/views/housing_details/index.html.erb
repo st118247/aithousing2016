@@ -1,14 +1,14 @@
-<p id="notice"><%= notice %></p>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function () {
+    $('#entry').DataTable();
+  });
+</script>
+<p id="alert notice alert-info"><%= notice %></p>
 
-<h1>Housing Details</h1>
-
-<br />
-<br />
-<h4><%= link_to 'New Housing Detail', new_housing_detail_path %></h4>
-<br />
-<br />
-
-<table>
+<h1 style="display: inline; vertical-align:middle">Housing Details</h1>
+<%= link_to 'New Housing Detail', new_housing_detail_path, class: "btn btn-default" %>
+<br>
+<table id="entry" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="example_info" style="width: 100%;" cellspacing="0" width="100%">
   <thead>
     <tr>
       <th>Version</th>
@@ -16,6 +16,7 @@
       <th>Status</th>
       <th>Created By</th>
       <th>Updated By</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -43,11 +44,12 @@
         <td><%= housing_detail.status %></td>
         <td><%= housing_detail.createdby %></td>
         <td><%= housing_detail.updatedby %></td>
-        <td><%= link_to 'Show', housing_detail %></td>
-        <% if housing_detail.status == 'Approved' %>
-            <td><%= link_to 'Edit', edit_housing_detail_path(housing_detail) %></td>
+        <td><%= link_to 'Show', housing_detail %> |
+        <% if housing_detail.status == 'Approved' || current_user.officer_role.role != 'Staff' %>
+            <%= link_to 'Edit', edit_housing_detail_path(housing_detail) %> |
+            <%= link_to 'Destroy', housing_detail, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-        <td><%= link_to 'Destroy', housing_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </td>
       </tr>
   <% end %>
   </tbody>
