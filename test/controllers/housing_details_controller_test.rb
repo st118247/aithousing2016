@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class HousingDetailsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
+    @admin = users(:one)
     @housing_detail = housing_details(:one)
   end
 
@@ -16,8 +18,9 @@ class HousingDetailsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create housing_detail" do
+    sign_in @admin
     assert_difference('HousingDetail.count') do
-      post housing_details_url, params: { housing_detail: { air_con: @housing_detail.air_con, attachment: @housing_detail.attachment, balcony: @housing_detail.balcony, bathroom: @housing_detail.bathroom, category_name: @housing_detail.category_name, catgory_no: @housing_detail.catgory_no, cleaning: @housing_detail.cleaning, description: @housing_detail.description, dorm: @housing_detail.dorm, furniture: @housing_detail.furniture, kitchen: @housing_detail.kitchen, rent: @housing_detail.rent, size: @housing_detail.size, status: @housing_detail.status, version_id: @housing_detail.version_id } }
+      post housing_details_url, params: { housing_detail: { air_con: @housing_detail.air_con, attachment: @housing_detail.attachment, balcony: @housing_detail.balcony, bathroom: @housing_detail.bathroom, category_name: @housing_detail.category_name, category_id: @housing_detail.category_id, cleaning: @housing_detail.cleaning, description: @housing_detail.description, dorm: @housing_detail.dorm, furniture: @housing_detail.furniture, kitchen: @housing_detail.kitchen, rent: @housing_detail.rent, size: @housing_detail.size, status: @housing_detail.status, version_id: @housing_detail.version_id } }
     end
 
     assert_redirected_to housing_detail_url(HousingDetail.last)
@@ -34,7 +37,8 @@ class HousingDetailsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update housing_detail" do
-    patch housing_detail_url(@housing_detail), params: { housing_detail: { air_con: @housing_detail.air_con, attachment: @housing_detail.attachment, balcony: @housing_detail.balcony, bathroom: @housing_detail.bathroom, category_name: @housing_detail.category_name, catgory_no: @housing_detail.catgory_no, cleaning: @housing_detail.cleaning, description: @housing_detail.description, dorm: @housing_detail.dorm, furniture: @housing_detail.furniture, kitchen: @housing_detail.kitchen, rent: @housing_detail.rent, size: @housing_detail.size, status: @housing_detail.status, version_id: @housing_detail.version_id } }
+    sign_in @admin
+    patch housing_detail_url(@housing_detail), params: { housing_detail: { air_con: @housing_detail.air_con, attachment: @housing_detail.attachment, balcony: @housing_detail.balcony, bathroom: @housing_detail.bathroom, category_name: @housing_detail.category_name, category_id: @housing_detail.category_id, cleaning: @housing_detail.cleaning, description: @housing_detail.description, dorm: @housing_detail.dorm, furniture: @housing_detail.furniture, kitchen: @housing_detail.kitchen, rent: @housing_detail.rent, size: @housing_detail.size, status: @housing_detail.status, version_id: @housing_detail.version_id } }
     assert_redirected_to housing_detail_url(@housing_detail)
   end
 

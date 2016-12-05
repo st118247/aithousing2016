@@ -2,7 +2,7 @@
 
 one:
   version_id: 1
-  catgory_no: MyString
+  category_id: MyString
   status: MyString
   category_name: MyString
   dorm: MyString
@@ -19,7 +19,7 @@ one:
 
 two:
   version_id: 1
-  catgory_no: MyString
+  category_id: MyString
   status: MyString
   category_name: MyString
   dorm: MyString
