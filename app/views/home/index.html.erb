@@ -1,9 +1,10 @@
 <h1>Accommodation office</h1>
 
 <% if user_signed_in? %>
+  <% if current_user.status == 'active' %>
     <% if current_user.officer_role.role == 'Admin' %>
       <div id="admin">
-        <h3>Admin</h3>
+        <h4>Admin</h4>
         <ul>
           <li><%= link_to "List of users", administration_userlist_path %></li>
           <li><%= link_to "Statistics", administration_statistics_path %></li>
@@ -15,7 +16,7 @@
       </div>
     <% elsif current_user.officer_role.role == 'Supervisor' %>
       <div id = "supervisor">
-        <h4>Staffs</h4>
+        <h4>Supervisor</h4>
         <ul>
           <li><%= link_to "List of users", administration_userlist_path %></li>
           <li><%= link_to "Statistics", administration_statistics_path %></li>
@@ -40,7 +41,10 @@
         <li><%= link_to "Statistics", administration_statistics_path %></li>
       </ul>
     <% end %>
+  <% else %>
+    <h4 style="color: #cc0000">You are not a active user.</h4>
+  <% end %>
 <% end %>
-
+<p>
 <h2>Public page</h2>
-<p>To view the Housing details of AIT residences please click <%= link_to 'here', home_public_url, target: "_blank" %> </p>
+To view the Housing details of AIT residences please click here <%= link_to 'here', home_public_url, target: "_blank" %> </p>
