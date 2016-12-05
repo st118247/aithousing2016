@@ -80,4 +80,4 @@ gem 'fast_stack'    # For Ruby MRI 2.0
 #gem 'rack-mini-profiler', require: false
 
 gem 'bootstrap-sass', '~> 3.3.6'
-gem "carrierwave", :github => "carrierwaveuploader/carrierwave"
+gem "carrierwave"
