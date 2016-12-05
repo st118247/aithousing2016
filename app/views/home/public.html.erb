@@ -1,47 +1,57 @@
-<h1>AIT Accommodation Page for all registered Residents</h1>
+<h2>AIT Accommodation Page for all registered Residents</h2>
 <!--<p>Find me in app/views/home/public.html.erb</p>-->
 
 <% old_cat_id = 0 %>
 
-<div class="container marketing">
-  <% @hd.each do |housing_detail| %>
-      <% if housing_detail.category_id != old_cat_id then %>
 
+<% @hd.each do |housing_detail| %>
+    <% if housing_detail.category_id != old_cat_id then %>
+        <div class="container marketing">
+
+          <hr class="featurette-divider">
           <div class="row featurette">
-            <div class="col-md-8">
-              <h2 class="featurette-heading">Category No : <%= housing_detail.category_id %></h2>
-              <% old_cat_id = housing_detail.category_id %>
-              <h5>Category name : <%= housing_detail.category_name %></h5>
-              <h5>Description : <%= housing_detail.description %></h5>
-              <h5>Approx Rent of Room : <%= housing_detail.rent %></h5>
+            <!--<div class="col-md-8">-->
+            <h2 class="featurette-heading"><strong>Category No : <%= housing_detail.category_id %></strong></h2>
+            <div class="col-md-4">
 
-              <div class="col-md-4">
-                <h5>Dorms in Category : <%= housing_detail.dorm %></h5>
-                <h5>Size of Rooms : <%= housing_detail.size %></h5>
-                <h5>Provision for Air Con in Rooms : <%= housing_detail.air_con %></h5>
-                <h5>Provision for Balcony in Rooms : <%= housing_detail.balcony %></h5>
-              </div>
-              <div class="col-md-4">
-                <h5>Bathroom in Room : <%= housing_detail.bathroom %></h5>
-                <h5>Kitchen : <%= housing_detail.kitchen %></h5>
-                <h5>Furniture in Rooms : <%= housing_detail.furniture %></h5>
-                <h5>Room cleaning frequency : <%= housing_detail.cleaning %></h5>
-              </div>
+              <% old_cat_id = housing_detail.category_id %>
+              <h5><strong>Category name : </strong><%= housing_detail.category_name %></h5>
+              <h5><strong>Description : </strong><%= housing_detail.description %></h5>
+              <h5><strong>Approx Rent of Room : </strong><%= housing_detail.rent %></h5>
             </div>
 
             <div class="col-md-4">
-              <% if housing_detail.attachment.present? then %>
-                  <% housing_detail.housingcategorypics.each do |pic| %>
-                      <%= image_tag pic.to_s , width: 390, height: 192 %>
-                  <% end %>
-              <% else %>
-                  <%= image_tag 'noimage.jpg', width: 390, height: 192  %>
-              <% end %>
+              <h5><strong>Dorms in Category : </strong><%= housing_detail.dorm %></h5>
+              <h5><strong>Size of Rooms : </strong><%= housing_detail.size %></h5>
+              <h5><strong>Provision for Air Con in Rooms : </strong><%= housing_detail.air_con %></h5>
+              <h5><strong>Provision for Balcony in Rooms : </strong><%= housing_detail.balcony %></h5>
+            </div>
+
+            <div class="col-md-4">
+              <h5><strong>Bathroom in Room : </strong><%= housing_detail.bathroom %></h5>
+              <h5><strong>Kitchen : </strong><%= housing_detail.kitchen %></h5>
+              <h5><strong>Furniture in Rooms : </strong><%= housing_detail.furniture %></h5>
+              <h5><strong>Room cleaning frequency : </strong><%= housing_detail.cleaning %></h5>
             </div>
           </div>
+          <!--</div>-->
           <hr class="featurette-divider">
+          <div class="row featurette">
+            <h5><strong>Layout for Reference</strong></h5>
+            <% if housing_detail.attachment.present? then %>
+                <% housing_detail.housingcategorypics.each do |pic| %>
+                    <div class="col-md-3">
+                      <%= image_tag pic.to_s , width: 390, height: 192 %>
+                    </div>
+                <% end %>
+            <% else %>
+                <div class="col-md-4">
+                  <%= image_tag 'noimage.jpg', width: 390, height: 192  %>
+                </div>
+            <% end %>
+          </div>
+          <!--</div>-->
+    <% end %>
 <% end %>
-  <% end %>
 </div>
 
-<%= render 'demo' %>
