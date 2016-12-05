@@ -23,36 +23,51 @@
 </div>
 
 <div class="col-xs-6 col-md-9 col-sm-3 placeholder">
-  <table class="table table-bordered">
+  <table class="table">
     <thead>
     <tr>
       <% if @role.where(id:1)[0].present? %>
-        <th>Total of <%= @role.where(id:1)[0].role %>s</th>
+        <th>Total of <%= @role.where(id:1)[0].role %>s is <%= @user.where(officer_role_id:1).count %></th>
       <% end %>
       <% if @role.where(id:2)[0].present? %>
-          <th>Total of <%= @role.where(id:2)[0].role %>s</th>
+          <th>Total of <%= @role.where(id:2)[0].role %>s is <%= @user.where(officer_role_id:2).count %></th>
       <% end %>
       <% if @role.where(id:3)[0].present? %>
-          <th>Total of <%= @role.where(id:3)[0].role %>s</th>
+          <th>Total of <%= @role.where(id:3)[0].role %>s is <%= @user.where(officer_role_id:3).count %></th>
       <% end %>
       <% if @role.where(id:4)[0].present? %>
-          <th>Total of <%= @role.where(id:4)[0].role %>s</th>
+          <th>Total of <%= @role.where(id:4)[0].role %>s is <%= @user.where(officer_role_id:4).count %></th>
       <% end %>
     </tr>
     </thead>
     <tbody>
     <% if @role.where(id:1)[0].present? %>
         <tr>
-          <td><%= @user.where(officer_role_id:1).count %></td>
+          <td>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%= (@user.where(officer_role_id:1).count)*100/(@user.count) %>%"></div>
+            </div>
+          </td>
+
     <% end %>
     <% if @role.where(id:2)[0].present? %>
-          <td><%= @user.where(officer_role_id:2).count %></td>
+          <td>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%= (@user.where(officer_role_id:2).count)*100/(@user.count) %>%"></div>
+            </div>
+          </td>
     <% end %>
     <% if @role.where(id:3)[0].present? %>
-          <td><%= @user.where(officer_role_id:3).count %></td>
+          <td><div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%= (@user.where(officer_role_id:3).count)*100/(@user.count) %>%"></div>
+          </div>
+          </td>
     <% end %>
     <% if @role.where(id:4)[0].present? %>
-          <td><%= @user.where(officer_role_id:4).count %></td>
+          <td><div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%= (@user.where(officer_role_id:4).count)*100/(@user.count) %>%"></div>
+          </div>
+          </td>
         </tr>
     <% end %>
     </tbody>
