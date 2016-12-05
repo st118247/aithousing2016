@@ -30,7 +30,7 @@
         <td><%= room_management.dorm %></td>
         <td><%= room_management.status %></td>
         <td><%= room_management.student_id %></td>
-        <td><%= room_management.arrival_date %></td>
+        <td><%= room_management.arrival_date.strftime("%Y-%m-%d") %></td>
         <td><%= room_management.user.email %></td>
         <td><%= link_to 'Edit', edit_room_management_path(room_management) %></td>
 

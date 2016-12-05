@@ -1,8 +1,14 @@
-<p id="notice"><%= notice %></p>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function () {
+    $('#example').DataTable();
+  });
+</script>
+<p id="alert notice alert-info"><%= notice %></p>
 
-<h1>Room Histories</h1>
-
-<table>
+<h1 style="display: inline; vertical-align:middle">Room Histories</h1>
+<%= link_to 'New Room History', new_room_history_path, class: "btn btn-default" %>
+<br>
+<table id="example" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="example_info" style="width: 100%;" cellspacing="0" width="100%">
   <thead>
     <tr>
       <th>Category no</th>
@@ -23,8 +29,8 @@
         <td><%= room_history.category_no %></td>
         <td><%= room_history.dorm %></td>
         <td><%= room_history.student_id %></td>
-        <td><%= room_history.arrival_date %></td>
-        <td><%= room_history.leave_date %></td>
+        <td><%= room_history.arrival_date.strftime("%Y-%m-%d") %></td>
+        <td><%= room_history.leave_date.strftime("%Y-%m-%d") %></td>
         <td><%= User.find(room_history.allocated_user_id).email %></td>
         <% if room_history.deallocated_user_id.nil? %>
             <td></td>
@@ -45,5 +51,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Room History', new_room_history_path %>
