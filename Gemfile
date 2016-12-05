@@ -63,7 +63,7 @@ group :test do
   gem 'launchy'
   gem 'rspec-rails'
 end
-gem 'nokogiri'
+#gem 'nokogiri'
 gem 'rails-controller-testing'
 gem 'devise'
 gem 'cancancan'

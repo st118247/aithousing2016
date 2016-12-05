@@ -313,7 +313,6 @@ DEPENDENCIES
   launchy
   listen (~> 3.0.5)
   memory_profiler
-  nokogiri
   pg (~> 0.18)
   puma (~> 3.0)
   rack-mini-profiler
