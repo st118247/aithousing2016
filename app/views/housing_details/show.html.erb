@@ -75,5 +75,16 @@
   <%= @housing_detail.attachment %>
 </p>
 
+<p>
+  <% if @housing_detail.attachment.present? then %>
+      <% @housing_detail.housingcategorypics.each do |pic| %>
+          <%= image_tag pic.to_s , width: 390, height: 192 %>
+          <br />
+      <% end %>
+  <% else %>
+      <%= image_tag 'noimage.jpg', width: 390, height: 192  %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_housing_detail_path(@housing_detail) %> |
 <%= link_to 'Back', housing_details_path %>

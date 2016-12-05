@@ -1,4 +1,4 @@
-<%= form_for(housing_detail) do |f| %>
+<%= form_for(housing_detail, html: { multipart: true }) do |f| %>
   <% if housing_detail.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(housing_detail.errors.count, "error") %> prohibited this housing_detail from being saved:</h2>
@@ -81,10 +81,17 @@
     <%= f.text_field :rent %>
   </div>
 
-  <div class="field">
-    <%= f.label :attachment %>
-    <%= f.text_field :attachment %>
-  </div>
+  <!--<div class="field">-->
+    <!--<%#= f.label :attachment %>-->
+    <!--<%#= f.text_field :attachment %>-->
+  <!--</div>-->
+
+
+   <div>
+    <%= f.label :housingcategorypics %>
+     <p>Please select all files at one time for upload</p>
+    <%= f.file_field :housingcategorypics, multiple: true %>
+   </div>
 
   <div class="actions">
     <%= f.submit %>
