@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <TITLE>Asian Institute of Technology (AIT) - Category Housing Information</TITLE>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+<div class="container" id="container">
+  <div class="header clearfix" style="background-color: #003000">
+    <nav>
+    </nav>
+    <%= image_tag("http://www.asdu.ait.ac.th/lib/graphics/logos/aitlogo.gif") %>
+    <%= image_tag("http://www.asdu.ait.ac.th/lib/graphics/banners/aitfullname.gif")%>
+  </div>
+  <br/>
+
+  <%= yield %>
+</div>
+<p style="position: absolute; right: 0;">
+  <a href="http://validator.w3.org/check?uri=referer"><img width="88" height="31" alt="Valid XHTML 1.0!" src="http://www.w3.org/Icons/valid-xhtml10"/></a>
+  <br>Benya and Parth.
+</p>
+</body>
+</html>

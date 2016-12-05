@@ -8,6 +8,7 @@ class HomeController < ApplicationController
 
   def public
     @hd = HousingDetail.where(status: 'Approved').order(version_id: :desc)
+    render :layout => "publicpage"
     #@cat_id_unique = @hd.distinct.pluck(:category_id)
 
     #@cat_id_unique.each do |c|

@@ -1,4 +1,14 @@
+<style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+  }
+</style>
+
+
 <h2>AIT Accommodation Page for all registered Residents</h2>
+
 <!--<p>Find me in app/views/home/public.html.erb</p>-->
 
 <% old_cat_id = 0 %>
@@ -36,22 +46,74 @@
           </div>
           <!--</div>-->
           <hr class="featurette-divider">
-          <div class="row featurette">
+          <div class="">
+
+
+
             <h5><strong>Layout for Reference</strong></h5>
+
             <% if housing_detail.attachment.present? then %>
-                <% housing_detail.housingcategorypics.each do |pic| %>
-                    <div class="col-md-3">
-                      <%= image_tag pic.to_s , width: 390, height: 192 %>
+
+                <% pic_no = 1 %>
+                <% attached_files = housing_detail.attachment.to_i %>
+                <div class="container">
+                  <br>
+                  <div id="myCarousel<%= housing_detail.category_id %>" class="carousel slide" data-ride="carousel">
+
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                      <% attached_files.times do |a| %>
+                          <% if a = 1 %> <li data-target="#myCarousel" data-slide-to="<%= a-1 %>0" class="active"></li>
+                              <li data-target="#myCarousel" data-slide-to="<%= a-1 %>" ></li>
+                              <!--<li data-target="#myCarousel" data-slide-to="2"></li>-->
+                              <!--<li data-target="#myCarousel" data-slide-to="3"></li>-->
+                          <% end %>
+                      <% end %>
+                    </ol>
+
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                      <% pic_no = 1 %>
+                      <% housing_detail.housingcategorypics.each do |pic| %>
+                          <% if pic_no > 0 then %>
+                              <div class="item active" style="text-align: center">
+                                <%= image_tag pic.to_s , width: 600, height: 390 %>
+                              </div>
+                              <% pic_no = 0 %>
+                          <% else %>
+                            <div class="item" style="text-align: center">
+                              <%= image_tag pic.to_s , width: 600, height: 390 %>
+                            </div>
+                          <% end %>
+                      <% end %>
                     </div>
-                <% end %>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel<%= housing_detail.category_id %>" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+
+                    <a class="right carousel-control" href="#myCarousel<%= housing_detail.category_id %>" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+
+            </div>
+
+
             <% else %>
-                <div class="col-md-4">
-                  <%= image_tag 'noimage.jpg', width: 390, height: 192  %>
+                <div class="row featurette">
+
+                  <%= image_tag 'noimage.jpg', width: 600, height: 390  %>
                 </div>
             <% end %>
-          </div>
+            </div>
           <!--</div>-->
     <% end %>
 <% end %>
-</div>
+
 
